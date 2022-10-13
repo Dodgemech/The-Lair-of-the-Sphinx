@@ -10,7 +10,7 @@ Monster.belongsToMany(Riddle, {
 
 Riddle.belongsToMany(Monster, {
     through: MonsterRiddle,
-    foreignKey: 'riddle:'
+    foreignKey: 'riddle_id'
 });
 
 module.exports = {
