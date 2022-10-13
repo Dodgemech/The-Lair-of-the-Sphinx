@@ -3,19 +3,19 @@ const { Riddle } = require('../models');
 const riddleData = [
     {
         question: 'Riddle 1',
-        answers: ['apple','aple']
+        answers: 'apple'
     },
     {
         question: 'Riddle 2',
-        answers: ['dog','doog','dg']
+        answers: 'apple'
     },
     {
         question: 'Riddle 3',
-        answers: ['aa','a','aaa']
+        answers: 'apple'
     },
     {
         question: 'Riddle 4',
-        answers: ['mario','super mario']
+        answers: 'apple'
     }
 ]
 
