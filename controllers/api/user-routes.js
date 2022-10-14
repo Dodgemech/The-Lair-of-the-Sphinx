@@ -18,6 +18,29 @@ router.get('/', (req,res) => {
 });
 
 //get user by id
+router.get('/:id', (req,res) => {
+    User.findOne({
+        attributes: {exclude: ['password'] },
+        //include: [], incase we need more data from other tables later
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(response => {
+        if (!response) {
+            res.status(404).json({ message: 'User Not Found' });
+        }
+        else {
+            res.json(response);
+        }
+        
+    })
+    .catch( err => {
+        console.log('an error occured');
+        console.log(err);
+        res.status(500).json(err);
+    });
+})
 
 //POST ROUTES-------------------------------------
 //make new user
@@ -51,5 +74,33 @@ router.post('/', async (req,res) => {
         res.status(500).json(err);
     });
 });
+//Login Request
+router.post('/login', (req, res) => {
+    User.findOne({
+        where: {
+            username: req.body.username
+        }
+    })
+    .then(userData => {
+        if (!userData) {
+            res.status(404).json({ message: 'User Not Found' });
+            return;
+        }
+        
+        const passwordValid = userData.checkPassword(req.body.password); // <= checkPassword() comes from the User model
+        if (!passwordValid) {
+            res.status(400).json({ message: 'Password is incorrect'});
+            return;
+        }
+
+        //!!! - SET UP SESSION HERE
+        res.json({ message: 'logged in!'});
+    });
+});
+
+//Logout Request
+router.post('/logout', (req,res) => {
+    //!!! - DESTROY SESSION HERE
+})
 
 module.exports = router;
