@@ -7,15 +7,15 @@ const riddleData = [
     },
     {
         question: 'Riddle 2',
-        answers: 'apple'
+        answers: 'pear'
     },
     {
         question: 'Riddle 3',
-        answers: 'apple'
+        answers: 'orange'
     },
     {
         question: 'Riddle 4',
-        answers: 'apple'
+        answers: 'banana'
     }
 ]
 

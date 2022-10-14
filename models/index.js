@@ -1,6 +1,7 @@
 //Import models
 const Monster = require('./Monster');
 const Riddle = require('./Riddle');
+const User = require('./User');
 const MonsterRiddle = require('./MonsterRiddle');
 
 Monster.belongsToMany(Riddle, {
@@ -16,5 +17,6 @@ Riddle.belongsToMany(Monster, {
 module.exports = {
     Monster,
     Riddle,
+    User,
     MonsterRiddle
 };
