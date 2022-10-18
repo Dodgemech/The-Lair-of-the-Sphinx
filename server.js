@@ -17,10 +17,18 @@ const PORT = process.env.PORT || 3001;
 const routes = require('./controllers/');
 //<><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
+const sessionSettings = {
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+};
+
 // we set up handlebars and connect it with express
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+// Allows public folder to be used
+app.use(session(sessionSettings));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json());

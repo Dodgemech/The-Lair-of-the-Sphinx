@@ -44,63 +44,60 @@ router.get('/:id', (req,res) => {
 
 //POST ROUTES-------------------------------------
 //make new user
-router.post('/', async (req,res) => {
-    //before making user, check to see if one already exists with same username
+router.post('/', async (req, res) => {
     const userExists = await User.findOne({
         where: {
             username: req.body.username
         }
     });
-    if (userExists) {
-        console.log('User could not be created as someone with that username already exists in the DB');
-        res.status(409).json({ message: 'User Exists Already'}); // <= There may be a better status code than 409
+    if (userExists){
+        console.log('userExists----------------------');
+        res.status(409).json({ message: "User exists already" })
         return;
     }
-
-    User.create({
-        username: req.body.username,
-        password: req.body.password,
-        character_name: req.body.character_name,
-        character_gender: req.body.character_gender,
-        character_health: 100,
-        character_level: 1
-    })
-    .then(userData => {
-        //!!! - SET UP SESSION HERE
-        res.json(userData);
-    })
-    .catch(err => {
-        console.log(err);
+    try {
+        const dbUser = await User.create(
+            req.body
+        )
+        res.json(dbUser);
+    } catch (err) {
         res.status(500).json(err);
-    });
+    }
 });
 //Login Request
-router.post('/login', (req, res) => {
-    User.findOne({
-        where: {
-            username: req.body.username
+router.post('/login', async (req, res) => {
+    try {
+        const dbUser = await User.findOne({
+            where: {
+                username: req.body.username,
+            }
+        })
+        if(!dbUser) {
+            res.status(404).json('Username not found. Please try again or sign up.')
         }
-    })
-    .then(userData => {
-        if (!userData) {
-            res.status(404).json({ message: 'User Not Found' });
-            return;
-        }
-        
-        const passwordValid = userData.checkPassword(req.body.password); // <= checkPassword() comes from the User model
-        if (!passwordValid) {
-            res.status(400).json({ message: 'Password is incorrect'});
-            return;
-        }
+        const pwValidate = dbUser.checkPassword(req.body.password);
 
-        //!!! - SET UP SESSION HERE
-        res.json({ message: 'logged in!'});
-    });
+        if(!pwValidate) {
+            res.status(404).json('Incorrect password. Please try again.')
+        }
+        req.session.save(() => {
+            req.session.loggedIn = true;
+            req.session.username = dbUser.username;
+            req.session.characterName = dbUser.character_name;
+            req.session.userID = dbUser.id;
+            res.json('You are now logged in!')
+         })
+    } catch (err) {
+       console.log(err);
+    }
 });
 
 //Logout Request
 router.post('/logout', (req,res) => {
     //!!! - DESTROY SESSION HERE
-})
+    req.session.destroy(() => {
+        res.json('You are logged out!')
+    })
+});
 
 module.exports = router;
