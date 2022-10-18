@@ -7,15 +7,10 @@ Monster. init(
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
+            primaryKey: true
         },
         name: { //Monster's Name
             type: DataTypes.STRING,
-            allowNull: false
-        },
-        level: { //What level of the game it will appear on
-            type:DataTypes.INTEGER,
             allowNull: false
         },
         strength: { //How much damage it can do to player
