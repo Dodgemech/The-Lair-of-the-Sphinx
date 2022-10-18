@@ -1,6 +1,6 @@
 body {
     font-family: 'Indie Flower', cursive;
-    /* background-color: antiquewhite; */
+    /* background-image: url('../images/backgrounds/paper-background-temp.jpg'); */
 }
 
 img {
@@ -40,4 +40,7 @@ main a:hover{
 }
 
 
+.player-image {
+
+}
  

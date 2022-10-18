@@ -44,10 +44,13 @@
     </div>
   </div>
 </nav>
-<div class="stats">
-
-</div>
 </header>
+<div class="stats border-bottom">
+  {{#if loggedIn}}
+  {{> player-stats}}
+  {{/if}}
+</div>
+
 
 {{!-- this is where handlebars will put all of the code that express tells it to render --}}
 <main class="mt-5">
