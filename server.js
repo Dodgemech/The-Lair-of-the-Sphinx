@@ -1,4 +1,6 @@
+
 require('dotenv').config();
+
 //Requirements for Sequelize
 const sequelize = require('./config/connection');
 //Requirements for Express
