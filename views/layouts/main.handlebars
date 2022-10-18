@@ -5,9 +5,8 @@
   <title>Lair of the Sphinx</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Permanent+Marker&display=swap"
-    rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Indie+Flower&display=swap" rel="stylesheet">
 
 
 
@@ -17,7 +16,7 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-    <header>
+    <header class="border-bottom">
     <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">The Lair of the Sphinx</a>
@@ -51,8 +50,14 @@
 </header>
 
 {{!-- this is where handlebars will put all of the code that express tells it to render --}}
-<main>
-{{{ body }}}
+<main class="mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-1 col-0 side-gutter"></div>
+      <div class="col-lg-10 col-12 d-flex justify-content-center">{{{ body }}}</div>
+      <div class="col-lg-1 col-0 side-gutter"></div>
+    </div>
+  </div>
 </main>
    
 <footer>

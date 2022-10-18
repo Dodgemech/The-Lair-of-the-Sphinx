@@ -1,6 +1,11 @@
 body {
-    font-family: 'Permanent Marker', cursive;
-    background-color: antiquewhite;
+    font-family: 'Indie Flower', cursive;
+    /* background-color: antiquewhite; */
+}
+
+img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
 }
 
 nav {
@@ -10,8 +15,28 @@ nav {
 .navbar-brand {
 
     font-weight: bolder;
-    font-size: 40px;
-    
+    font-size: 40px; 
+}
+
+.enterance-img{
+    width: auto;
+    height: 200%;
+}
+main {
+    text-align: center;
+}
+
+main a{
+    color: black;
+    text-decoration: none;
+}
+
+main a:hover{
+    color: rgb(78, 78, 78);
+}
+
+.side-gutter {
+
 }
 
 
