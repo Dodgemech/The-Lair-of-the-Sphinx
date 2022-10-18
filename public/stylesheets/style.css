@@ -2,13 +2,16 @@ body {
     font-family: 'Permanent Marker', cursive;
     background-color: antiquewhite;
 }
-.navbar {
+
+nav {
     font-family: 'Chakra Petch', sans-serif;
+
 }
 .navbar-brand {
 
     font-weight: bolder;
-    font-size: larger;
+    font-size: 40px;
+    
 }
 
 
