@@ -21,6 +21,7 @@ const routes = require('./controllers/');
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+// Allows public folder to be used
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json());
