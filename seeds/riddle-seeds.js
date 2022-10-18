@@ -7,6 +7,7 @@ const riddleData = [
         answers: "egg"
     },
     {
+
         question: "I’m tall when I’m young, and I’m short when I’m old. What am I? A ___________",
         answers: "apple"
     },
