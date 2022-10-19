@@ -25,7 +25,7 @@ $signUpBtn.addEventListener('click', async (event) => {
       body: JSON.stringify({
         username: userInput,
         password: passwordInput,
-        character_name: 'JakeisCool',
+        character_name: 'Johnny Willammete',
         character_gender: 'Male',
         character_health: 100,
         character_level: 1
