@@ -18,6 +18,7 @@ const levelUp = async function () {
       
       if (res.ok) {
         console.log('level up');
+        location.reload();
       } else {
         alert('error');
       }
@@ -41,6 +42,7 @@ const updateHP = async function () {
       
       if (res.ok) {
         console.log('update HP');
+        location.reload();
       } else {
         alert('error');
       }
