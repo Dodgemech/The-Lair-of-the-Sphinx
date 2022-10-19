@@ -8,14 +8,10 @@ Monster. init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement:true
         },
         name: { //Monster's Name
             type: DataTypes.STRING,
-            allowNull: false
-        },
-        level: { //What level of the game it will appear on
-            type:DataTypes.INTEGER,
             allowNull: false
         },
         strength: { //How much damage it can do to player
@@ -23,6 +19,10 @@ Monster. init(
             allowNull: false
         },
         image: { //This will contain a string with the path to monster's image
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        description: {
             type: DataTypes.STRING,
             allowNull: false
         }
