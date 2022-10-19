@@ -10,9 +10,12 @@ const path = require('path');
 const session = require('express-session');
 
 // config for handlebars
-const hbs = exphbs.create({});
+    //Helper functions for handlebars
+    const helpers = require('./utils/helpers');
+const hbs = exphbs.create({ helpers });
 const app = express();
 const PORT = process.env.PORT || 3001;
+
 //Requirements for routers
 const routes = require('./controllers/');
 //<><><><><><><><><><><><><><><><><><><><><><><><><><><>

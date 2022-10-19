@@ -84,6 +84,8 @@ router.post('/login', async (req, res) => {
             req.session.loggedIn = true;
             req.session.username = dbUser.username;
             req.session.characterName = dbUser.character_name;
+            req.session.level = 1;
+            req.session.hp = 100;
             req.session.userID = dbUser.id;
             res.json('You are now logged in!')
          })
@@ -98,6 +100,30 @@ router.post('/logout', (req,res) => {
     req.session.destroy(() => {
         res.json('You are logged out!')
     })
+});
+
+
+//Increase level request
+router.post('/level-up',(req,res) => {
+    try {
+        req.session.level += 1;
+        res.json('UPDATED LEVEL');
+    }
+    catch (err) {
+        console.log(err);
+    }
+});
+
+//Change HP
+router.post('/update-hp',(req,res) => {
+    hpChange = parseInt(req.body.hpChange);
+    try {
+        req.session.hp += hpChange;
+        res.json('UPDATED HP');
+    }
+    catch (err) {
+        console.log(err);
+    }
 });
 
 module.exports = router;
