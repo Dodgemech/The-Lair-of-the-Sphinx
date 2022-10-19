@@ -1,0 +1,12 @@
+<h1>THIS PAGE IS WHERER BATTLES TAKE PLACE</h1>
+
+<h2>{{characterName}}</h2>
+<h2>hp: {{hp}}</h2>
+<h2>Level: {{level}}</h2>
+
+{{!-- These buttons are to test api calls that change session health and session level --}}
+<p>Use the buttons below and refresh the page to test out changing session values</p>
+<button id="decrement-health-test">Lower Health</button>
+<button id="increase-level-test">Level Up</button>
+
+<script src="/js/battle.js" hp={{hp}} level={{level}}></script>

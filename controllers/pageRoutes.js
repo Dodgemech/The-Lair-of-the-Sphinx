@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
         loggedIn: req.session.loggedIn,
         characterName: req.session.characterName,
         username: req.session.username
+
     });
 });
 
@@ -26,11 +27,23 @@ router.get('/login', (req, res) => {
     });
   });
 
-router.get('/account', (req, res) => {
+  router.get('/account', (req, res) => {
     res.render('account', {
         loggedIn: req.session.loggedIn,
         characterName: req.session.characterName,
-        username: req.session.username
+        username: req.session.username,
+        hp: req.session.hp,
+        level: req.session.level
+    });
+  });
+
+  router.get('/battle', (req, res) => {
+    res.render('battle', {
+        loggedIn: req.session.loggedIn,
+        characterName: req.session.characterName,
+        username: req.session.username,
+        hp: req.session.hp,
+        level: req.session.level
     });
   });
 
