@@ -4,9 +4,11 @@ const { Monster, MonsterRiddle, Riddle, User } = require('../models');
 
 router.get('/', (req, res) => {
     res.render('homepage', {
-        loggedIn: req.session.loggedIn,
-        characterName: req.session.characterName,
-        username: req.session.username
+      loggedIn: req.session.loggedIn,
+      characterName: req.session.characterName,
+      username: req.session.username,
+      hp: req.session.hp,
+      level: req.session.level
 
     });
 });
@@ -15,7 +17,9 @@ router.get('/signup', (req, res) => {
     res.render('signup', {
       loggedIn: req.session.loggedIn,
       characterName: req.session.characterName,
-      username: req.session.username
+      username: req.session.username,
+      hp: req.session.hp,
+      level: req.session.level
     });
   });
 
@@ -23,7 +27,9 @@ router.get('/login', (req, res) => {
     res.render('login', {
       loggedIn: req.session.loggedIn,
       characterName: req.session.characterName,
-      username: req.session.username
+      username: req.session.username,
+      hp: req.session.hp,
+      level: req.session.level
     });
   });
 
@@ -49,9 +55,11 @@ router.get('/login', (req, res) => {
 
 router.get('/info', (req, res) => {
     res.render('info', {
-        loggedIn: req.session.loggedIn,
-        characterName: req.session.characterName,
-        username: req.session.username
+      loggedIn: req.session.loggedIn,
+      characterName: req.session.characterName,
+      username: req.session.username,
+      hp: req.session.hp,
+      level: req.session.level
     });
   });
 
