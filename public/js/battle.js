@@ -9,20 +9,7 @@ const $levelUp = document.getElementById('increase-level-test');
 console.log(hp);
 console.log(level);
 //------------------------------------------
-const newMonster = async function () {
-  try {
-    const res = await fetch('/api/monsters/:id', {
-      method: "GET",
-    }),
-    if (res.ok) {
-      console.log(res)
-    } else {
-      alert('error')
-    }
-  } catch (error) {
-    console.log(error);
-  }
-}
+
 const levelUp = async function () {
   try {
     const res = await fetch('/api/users/level-up', {
@@ -66,4 +53,4 @@ const updateHP = async function () {
 
 $levelUp.addEventListener('click', levelUp);
 $lowerHealth.addEventListener('click', updateHP);
-newMonster();
+
