@@ -1,0 +1,54 @@
+body {
+    font-family: 'Indie Flower', cursive;
+    background-image: url('../images/backgrounds/small-paper-background.png');
+    background-size: 200px;
+
+    -webkit-backdrop-filter: grayscale(100%);
+    backdrop-filter: grayscale(100%);
+}
+
+img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    max-width: 450px;
+    max-height: 450px;
+    
+
+}
+
+nav {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 25px;
+}
+.navbar-brand {
+
+    font-weight: bolder;
+    font-size: 40px; 
+}
+
+.enterance-img{
+    width: auto;
+    height: 200%;
+}
+main {
+    text-align: center;
+}
+
+main a{
+    color: black;
+    text-decoration: none;
+}
+
+main a:hover{
+    color: rgb(78, 78, 78);
+}
+
+/* .side-gutter {
+
+}
+
+
+.player-image {
+
+}
+  */

@@ -19,7 +19,8 @@ User.init(
         },
         username: {
             type: DataTypes.STRING,
-            allowNull:false
+            allowNull:false,
+            unique: true,
         },
         password: {
             type: DataTypes.STRING,
@@ -44,8 +45,11 @@ User.init(
         character_level: { //May not need this for MVP, but could be useful later on
             type: DataTypes.INTEGER,
             allowNull:false 
+        },
+        character_score: {
+            type: DataTypes.INTEGER,
+            allowNull:false
         }
-
     },
     {
         hooks: { //hashed PW so that its not plain text

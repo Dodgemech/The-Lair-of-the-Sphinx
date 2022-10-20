@@ -7,7 +7,8 @@ Monster. init(
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement:true
         },
         name: { //Monster's Name
             type: DataTypes.STRING,
@@ -18,6 +19,10 @@ Monster. init(
             allowNull: false
         },
         image: { //This will contain a string with the path to monster's image
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        description: {
             type: DataTypes.STRING,
             allowNull: false
         }
