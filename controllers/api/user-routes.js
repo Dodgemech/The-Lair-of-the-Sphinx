@@ -42,6 +42,35 @@ router.get('/:id', (req,res) => {
     });
 })
 
+// get route for currently logged in user
+router.get('/current/now', (req, res) => {
+    console.log('test');
+    User.findOne({
+        attributes: {exclude: ['password'] },
+        //include: [], incase we need more data from other tables later
+        where: {
+            id: req.session.userID
+        },
+        include: [Monster]
+        
+    })
+    .then(response => {
+        if (!response) {
+            res.status(500).json({ message: 'User Not Found' });
+        }
+        else {
+            res.json(response);
+        }
+        
+    })
+    .catch( err => {
+        console.log('an error occured');
+        console.log(err);
+        res.status(500).json(err);
+    });
+
+})
+
 //POST ROUTES-------------------------------------
 //make new user
 router.post('/', async (req, res) => {
@@ -59,7 +88,15 @@ router.post('/', async (req, res) => {
         const dbUser = await User.create(
             req.body
         )
-        res.json(dbUser);
+        req.session.save(() => {
+            req.session.loggedIn = true;
+            req.session.username = dbUser.username;
+            req.session.characterName = dbUser.character_name;
+            req.session.level = 1;
+            req.session.hp = 100;
+            req.session.userID = dbUser.id;
+            res.json('You are now logged in!')
+         })
     } catch (err) {
         res.status(500).json(err);
     }
