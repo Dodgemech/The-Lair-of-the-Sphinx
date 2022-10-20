@@ -19,6 +19,14 @@ Scores.belongsTo(User, {
     foreignKey: 'score_id'
 });
 
+User.belongsTo(Monster, {
+    foreignKey: 'monster_id'
+});
+
+Monster.hasMany(User, {
+    foreignKey: 'monster_id'
+});
+
 
 module.exports = {
     Monster,
