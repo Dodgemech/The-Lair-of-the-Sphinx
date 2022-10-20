@@ -30,43 +30,43 @@ fightMonster();
 
 const levelUp = async function () {
   try {
-      const res = await fetch('/api/users/level-up', {
-        method: 'POST',
-      });
-      
-      if (res.ok) {
-        console.log('level up');
-        location.reload();
-      } else {
-        alert('error');
-      }
-    } catch (error) {
-      console.log(error);
-    };
+    const res = await fetch('/api/users/level-up', {
+      method: 'POST',
+    });
+
+    if (res.ok) {
+      console.log('level up');
+      location.reload();
+    } else {
+      alert('error');
+    }
+  } catch (error) {
+    console.log(error);
+  };
 }
 
 const updateHP = async function () {
   try {
-      const hpValue = (-5);
-      const res = await fetch('/api/users/update-hp', {
-        method: 'POST',
-        body: JSON.stringify({
-          hpChange: hpValue
-        }),
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      });
-      
-      if (res.ok) {
-        console.log('update HP');
-        location.reload();
-      } else {
-        alert('error');
-      }
-    } catch (error) {
-      console.log(error);
-    };
+    const hpValue = (-5);
+    const res = await fetch('/api/users/update-hp', {
+      method: 'POST',
+      body: JSON.stringify({
+        hpChange: hpValue
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+
+    if (res.ok) {
+      console.log('update HP');
+      location.reload();
+    } else {
+      alert('error');
+    }
+  } catch (error) {
+    console.log(error);
+  };
 }
 
 $levelUp.addEventListener('click', levelUp);
