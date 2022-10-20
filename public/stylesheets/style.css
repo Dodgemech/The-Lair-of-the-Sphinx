@@ -2,12 +2,16 @@ body {
     font-family: 'Indie Flower', cursive;
     background-image: url('../images/backgrounds/small-paper-background.png');
     background-size: 200px;
+
+    -webkit-backdrop-filter: grayscale(100%);
+    backdrop-filter: grayscale(100%);
 }
 
 img {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
-    
+    max-width: 450px;
+    max-height: 450px;
     
 
 }
