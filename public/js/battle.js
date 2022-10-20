@@ -10,6 +10,24 @@ console.log(hp);
 console.log(level);
 //------------------------------------------
 
+// user has monster Id already stored to them, once that monster is defeated UPDATE user to next monster's id
+// make sure the reference number never goes passed the amount of monsters, query for how many rows there are in table 
+const fightMonster = async function () {
+  try {
+    const res = await fetch('/api/users/current/now')
+    
+
+    if (res.ok) {
+    const user = await res.json();
+    console.log(user)
+    }
+  } catch (error) {
+    console.log(err)
+  }
+}
+
+fightMonster();
+
 const levelUp = async function () {
   try {
     const res = await fetch('/api/users/level-up', {
