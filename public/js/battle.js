@@ -2,12 +2,28 @@
 let hp = document.currentScript.getAttribute('hp');
 let level = document.currentScript.getAttribute('level');
 
+const $monsterImage = document.getElementById('monster-image');
+const $monsterName = document.getElementById('monster-name');
+const $monsterDescription = document.getElementById('monster-description');
+
 //-------TESTING PURPOSES ONLY-------------
 const $lowerHealth = document.getElementById('decrement-health-test');
 const $levelUp = document.getElementById('increase-level-test');
 
 console.log(hp);
 console.log(level);
+//------------------------------------------
+
+//------DISPLAY MONSTER ON PAGE-------------
+async function displayMonster() {
+  const res = await fetch(`/api/monsters/${level}`);
+  const monster = await res.json();
+  console.log(monster);
+
+  $monsterImage.src = `/images/${monster.image}`;
+  $monsterName.textContent = monster.name;
+  $monsterDescription.textContent = monster.description;
+}
 //------------------------------------------
 
 // user has monster Id already stored to them, once that monster is defeated UPDATE user to next monster's id
@@ -68,6 +84,8 @@ const updateHP = async function () {
     console.log(error);
   };
 }
+//---------RUNS WHEN PAGE LOADED---------
+displayMonster();
 
 $levelUp.addEventListener('click', levelUp);
 $lowerHealth.addEventListener('click', updateHP);
