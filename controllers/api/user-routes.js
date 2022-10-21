@@ -163,4 +163,15 @@ router.post('/update-hp',(req,res) => {
     }
 });
 
+router.post('/update-score',(req,res) => {
+    scoreChange = parseInt(req.body.scoreChange);
+    try {
+        req.session.hp += scoreChange;
+        res.json('UPDATED SCORE');
+    }
+    catch (err) {
+        console.log(err);
+    }
+});
+
 module.exports = router;

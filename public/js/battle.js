@@ -2,9 +2,12 @@
 let hp = document.currentScript.getAttribute('hp');
 let level = document.currentScript.getAttribute('level');
 
+
 //-------TESTING PURPOSES ONLY-------------
 const $lowerHealth = document.getElementById('decrement-health-test');
 const $levelUp = document.getElementById('increase-level-test');
+const $answerInput = document.getElementById('answer-input').value;
+let globalIndex = 0;
 
 console.log(hp);
 console.log(level);
@@ -15,18 +18,69 @@ console.log(level);
 const fightMonster = async function () {
   try {
     const res = await fetch('/api/users/current/now')
-    
 
     if (res.ok) {
-    const user = await res.json();
-    console.log(user)
+      const user = await res.json();
+      console.log(user)
+    }
+    // if monster is correct go to next monster
+    // else return game over
+
+    if($answerInput === questions.answer) {
+      updateScore();
+    } else {
+      updateHP();
     }
   } catch (error) {
     console.log(err)
   }
 }
 
-fightMonster();
+//function to update riddle
+    // need to make sure to put something in that checks to see that were not asking for another when out
+      // also calls these 
+
+//function to update the monster_id in the user
+    // need to make sure to put something in that checks to see that were not asking for another when out
+
+// fightMonster();
+
+
+
+const updateScore = async function () {
+  try {
+    const scoreValue = (-1);
+    const res = await fetch('/api/users/update-score', {
+      method: 'POST',
+      body: JSON.stringify({
+        scoreChange: hpVScore
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+
+    if (res.ok) {
+      console.log('update Score');
+      //remove this and replace by calling 
+      updateRiddle();
+    } else {
+      alert('error');
+    }
+  } catch (error) {
+    console.log(error);
+  };
+}
+
+//Update to next riddle
+const updateRiddle = async function () {
+  //call updateMonster()
+}
+
+//Update to next monster
+const updateMonster = async function () {
+  // location.reload();
+}
 
 const levelUp = async function () {
   try {
