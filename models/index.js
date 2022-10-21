@@ -2,6 +2,7 @@
 const Monster = require('./Monster');
 const Riddle = require('./Riddle');
 const User = require('./User');
+const Scores = require('./Scores');
 const MonsterRiddle = require('./MonsterRiddle');
 
 Monster.belongsToMany(Riddle, {
@@ -14,9 +15,23 @@ Riddle.belongsToMany(Monster, {
     foreignKey: 'riddle_id'
 });
 
+Scores.belongsTo(User, {
+    foreignKey: 'score_id'
+});
+
+User.belongsTo(Monster, {
+    foreignKey: 'monster_id'
+});
+
+Monster.hasMany(User, {
+    foreignKey: 'monster_id'
+});
+
+
 module.exports = {
     Monster,
     Riddle,
     User,
-    MonsterRiddle
+    MonsterRiddle,
+    Scores
 };

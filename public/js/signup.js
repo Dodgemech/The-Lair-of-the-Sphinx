@@ -1,5 +1,7 @@
 const $userNameInput = document.getElementById('userNameInput');
 const $passwordInput = document.getElementById('passwordInput');
+const $charNameInput = document.getElementById('characterNameInput');
+const $genderInput = document.getElementById('gender');
 const $signUpBtn = document.getElementById('signUpBtn');
 
 
@@ -8,6 +10,8 @@ $signUpBtn.addEventListener('click', async (event) => {
 
   const userInput = $userNameInput.value;
   const passwordInput = $passwordInput.value;
+  const charNameInput = $charNameInput.value;
+  const genderInput = $genderInput.value;
 
   if (userInput.trim().length === 0) {
     alert('Username must be provided');
@@ -25,8 +29,8 @@ $signUpBtn.addEventListener('click', async (event) => {
       body: JSON.stringify({
         username: userInput,
         password: passwordInput,
-        character_name: 'Johnny Willammete',
-        character_gender: 'Male',
+        character_name: charNameInput,
+        character_gender: genderInput,
         character_health: 100,
         character_level: 1
       }),
@@ -37,7 +41,7 @@ $signUpBtn.addEventListener('click', async (event) => {
     
   if (res.ok) {
     console.log('all signed up!');
-    document.location.replace('/login');
+    document.location.replace('/');
   } else {
     alert('Unable to sign up!');
   }

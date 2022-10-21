@@ -22,7 +22,7 @@ MonsterRiddle. init(
             type: DataTypes.INTEGER,
             references: {
                 model: 'riddle',
-                ket: 'id'
+                key: 'id'
             }
         },
 
