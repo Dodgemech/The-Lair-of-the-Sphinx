@@ -1,22 +1,24 @@
-<h1>THIS PAGE IS WHERER BATTLES TAKE PLACE</h1>
 
-<h2>{{characterName}}</h2>
-<h2>hp: {{hp}}</h2>
-<h2>Level: {{level}}</h2>
+
+
 
 
 {{!-- MONSTER's STATS --}}
 <div id="monster">
-    <img src="" alt="" id="monster-image">
+    <img src="/images/loading.gif" alt="" id="monster-image">
     <h2 id="monster-name">Loading...</h2>
     <p id="monster-description">Loading...</p>
+    <h3 id="monster-riddle">Loading...</h3>
 </div>
 
 
 
 {{!-- These buttons are to test api calls that change session health and session level --}}
+
+<hr>
 <p>Use the buttons below and refresh the page to test out changing session values</p>
 <button id="decrement-health-test">Lower Health</button>
 <button id="increase-level-test">Level Up</button>
+<button id="increase-riddle-index">Next Riddle</button>
 
-<script src="/js/battle.js" hp={{hp}} level={{level}}></script>
+<script src="/js/battle.js" hp={{hp}} level={{level}} riddleIndex = {{riddleIndex}}></script>
