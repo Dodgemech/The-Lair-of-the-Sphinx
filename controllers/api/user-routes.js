@@ -51,7 +51,10 @@ router.get('/current/now', (req, res) => {
         where: {
             id: req.session.userID
         },
-        include: [Monster]
+        include: [{
+            model: Monster,
+            attributes: ['name', 'strength', 'image', 'description']
+        }]
         
     })
     .then(response => {
@@ -94,6 +97,7 @@ router.post('/', async (req, res) => {
             req.session.characterName = dbUser.character_name;
             req.session.level = 1;
             req.session.hp = 100;
+            req.session.monster_id = 1;
             req.session.userID = dbUser.id;
             res.json('You are now logged in!')
          })

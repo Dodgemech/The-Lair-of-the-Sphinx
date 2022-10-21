@@ -53,7 +53,7 @@ User.init(
         monster_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: Monster,
+                model: 'monster',
                 key: 'id'
             },
             default: 1
