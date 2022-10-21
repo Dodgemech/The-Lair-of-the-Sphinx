@@ -49,7 +49,8 @@ router.get('/battle', authenticate, (req, res) => {
     characterName: req.session.characterName,
     username: req.session.username,
     hp: req.session.hp,
-    level: req.session.level
+    level: req.session.level,
+    riddleIndex: req.session.riddleIndex
   });
 
 });
