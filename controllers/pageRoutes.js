@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Monster, MonsterRiddle, Riddle, User, Scores } = require('../models');
-
+const authenticate = require('../utils/auth');
 
 router.get('/', (req, res) => {
     res.render('homepage', {
@@ -33,14 +33,26 @@ router.get('/login', (req, res) => {
     });
   });
 
-router.get('/battle', (req, res) => {
-  res.render('battle', {
+router.get('/account', (req, res) => {
+  res.render('account', {
     loggedIn: req.session.loggedIn,
     characterName: req.session.characterName,
     username: req.session.username,
     hp: req.session.hp,
     level: req.session.level
   });
+});
+
+router.get('/battle', authenticate, (req, res) => {
+  res.render('battle', {
+    loggedIn: req.session.loggedIn,
+    characterName: req.session.characterName,
+    username: req.session.username,
+    hp: req.session.hp,
+    level: req.session.level,
+    riddleIndex: req.session.riddleIndex
+  });
+
 });
 
 router.get('/info', (req, res) => {
