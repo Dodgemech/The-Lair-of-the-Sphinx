@@ -42,6 +42,8 @@ router.get('/:id', (req,res) => {
     });
 })
 
+
+
 // get route for currently logged in user
 router.get('/current/now', (req, res) => {
     console.log('test');
@@ -123,6 +125,7 @@ router.post('/login', async (req, res) => {
             req.session.characterName = dbUser.character_name;
             req.session.level = 1;
             req.session.hp = 100;
+            req.session.score = 0;
             req.session.userID = dbUser.id;
             res.json('You are now logged in!')
          })
@@ -163,10 +166,12 @@ router.post('/update-hp',(req,res) => {
     }
 });
 
+
+
 router.post('/update-score',(req,res) => {
     scoreChange = parseInt(req.body.scoreChange);
     try {
-        req.session.hp += scoreChange;
+        req.session.score += scoreChange;
         res.json('UPDATED SCORE');
     }
     catch (err) {

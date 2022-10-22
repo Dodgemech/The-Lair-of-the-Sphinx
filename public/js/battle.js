@@ -6,8 +6,8 @@ let level = document.currentScript.getAttribute('level');
 //-------TESTING PURPOSES ONLY-------------
 const $lowerHealth = document.getElementById('decrement-health-test');
 const $levelUp = document.getElementById('increase-level-test');
-const $answerInput = document.getElementById('answer-input').value;
-let globalIndex = 0;
+const $answerInput = document.getElementById('answer-input').value.trim();
+
 
 console.log(hp);
 console.log(level);
@@ -23,8 +23,6 @@ const fightMonster = async function () {
       const user = await res.json();
       console.log(user)
     }
-    // if monster is correct go to next monster
-    // else return game over
 
     if($answerInput === questions.answer) {
       updateScore();
@@ -36,24 +34,14 @@ const fightMonster = async function () {
   }
 }
 
-//function to update riddle
-    // need to make sure to put something in that checks to see that were not asking for another when out
-      // also calls these 
-
-//function to update the monster_id in the user
-    // need to make sure to put something in that checks to see that were not asking for another when out
-
-// fightMonster();
-
-
-
+//Update User score
 const updateScore = async function () {
   try {
     const scoreValue = (-1);
     const res = await fetch('/api/users/update-score', {
       method: 'POST',
       body: JSON.stringify({
-        scoreChange: hpVScore
+        scoreChange: scoreValue
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -72,15 +60,24 @@ const updateScore = async function () {
   };
 }
 
+//function to update riddle
+    // need to make sure to put something in that checks to see that were not asking for another when out
+      // also calls these 
 //Update to next riddle
-const updateRiddle = async function () {
-  //call updateMonster()
-}
+//const updateRiddle = async function () {
+ // if(if no more riddles ){
+  //  updateMonster()
+  //} else {
+    //riddle_id += 1
+ // }
+//}
 
+//function to update the monster_id in the user
+    // need to make sure to put something in that checks to see that were not asking for another when out
 //Update to next monster
-const updateMonster = async function () {
+//const updateMonster = async function () {
   // location.reload();
-}
+//}
 
 const levelUp = async function () {
   try {
