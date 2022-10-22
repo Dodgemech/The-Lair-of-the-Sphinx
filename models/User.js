@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const { Monster } = require('../models')
 const bcrypt = require('bcrypt');
 
 class User extends Model {
@@ -45,8 +46,18 @@ User.init(
         character_level: { //May not need this for MVP, but could be useful later on
             type: DataTypes.INTEGER,
             allowNull:false 
+        },
+        character_score: {
+            type: DataTypes.INTEGER,
+        },
+        monster_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: Monster,
+                key: 'id'
+            },
+            default: 1
         }
-
     },
     {
         hooks: { //hashed PW so that its not plain text
