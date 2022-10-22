@@ -44,18 +44,15 @@ router.get('/account', (req, res) => {
 });
 
 router.get('/battle', authenticate, (req, res) => {
-  if(!req.session.loggedIn){
-    res.redirect('/');
-    return;
-  } else {
   res.render('battle', {
     loggedIn: req.session.loggedIn,
     characterName: req.session.characterName,
     username: req.session.username,
     hp: req.session.hp,
-    level: req.session.level
+    level: req.session.level,
+    riddleIndex: req.session.riddleIndex
   });
-};
+
 });
 
 router.get('/info', (req, res) => {

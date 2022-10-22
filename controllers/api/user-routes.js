@@ -96,6 +96,7 @@ router.post('/', async (req, res) => {
             req.session.characterName = dbUser.character_name;
             req.session.level = 1;
             req.session.hp = 100;
+            req.session.riddleIndex = 0;
             req.session.userID = dbUser.id;
             res.json('You are now logged in!')
          })
@@ -125,7 +126,7 @@ router.post('/login', async (req, res) => {
             req.session.characterName = dbUser.character_name;
             req.session.level = 1;
             req.session.hp = 100;
-            req.session.score = 0;
+            req.session.riddleIndex = 0;
             req.session.userID = dbUser.id;
             res.json('You are now logged in!')
          })
@@ -147,7 +148,18 @@ router.post('/logout', (req,res) => {
 router.post('/level-up',(req,res) => {
     try {
         req.session.level += 1;
+        req.session.riddleIndex = 0;
         res.json('UPDATED LEVEL');
+    }
+    catch (err) {
+        console.log(err);
+    }
+});
+
+router.post('/next-riddle',(req,res) => {
+    try {
+        req.session.riddleIndex += 1;
+        res.json('UPDATED Riddle');
     }
     catch (err) {
         console.log(err);

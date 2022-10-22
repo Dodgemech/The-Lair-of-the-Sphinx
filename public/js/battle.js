@@ -1,16 +1,38 @@
 
 let hp = document.currentScript.getAttribute('hp');
 let level = document.currentScript.getAttribute('level');
+let riddleIndex = document.currentScript.getAttribute('riddleIndex');
 
+const $monsterImage = document.getElementById('monster-image');
+const $monsterName = document.getElementById('monster-name');
+const $monsterDescription = document.getElementById('monster-description');
+const $monsterRiddle = document.getElementById('monster-riddle');
 
+const correctAnswer = 'test';
 //-------TESTING PURPOSES ONLY-------------
 const $lowerHealth = document.getElementById('decrement-health-test');
 const $levelUp = document.getElementById('increase-level-test');
-const $answerInput = document.getElementById('answer-input').value.trim();
-
+const $riddleUp = document.getElementById('increase-riddle-index');
 
 console.log(hp);
 console.log(level);
+//------------------------------------------
+
+//------DISPLAY MONSTER ON PAGE-------------
+async function displayMonster() {
+  const res = await fetch(`/api/monsters/${level}`);
+  const monster = await res.json();
+  console.log(monster);
+
+  if (typeof monster.riddles[riddleIndex] == 'undefined') {
+    levelUp();
+    return;
+  }
+  $monsterImage.src = `/images/${monster.image}`;
+  $monsterName.textContent = monster.name;
+  $monsterDescription.textContent = monster.description;
+  $monsterRiddle.textContent = monster.riddles[riddleIndex].question;
+}
 //------------------------------------------
 
 // user has monster Id already stored to them, once that monster is defeated UPDATE user to next monster's id
@@ -33,51 +55,7 @@ const fightMonster = async function () {
     console.log(err)
   }
 }
-
-//Update User score
-const updateScore = async function () {
-  try {
-    const scoreValue = (-1);
-    const res = await fetch('/api/users/update-score', {
-      method: 'POST',
-      body: JSON.stringify({
-        scoreChange: scoreValue
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    });
-
-    if (res.ok) {
-      console.log('update Score');
-      //remove this and replace by calling 
-      updateRiddle();
-    } else {
-      alert('error');
-    }
-  } catch (error) {
-    console.log(error);
-  };
-}
-
-//function to update riddle
-    // need to make sure to put something in that checks to see that were not asking for another when out
-      // also calls these 
-//Update to next riddle
-//const updateRiddle = async function () {
- // if(if no more riddles ){
-  //  updateMonster()
-  //} else {
-    //riddle_id += 1
- // }
-//}
-
-//function to update the monster_id in the user
-    // need to make sure to put something in that checks to see that were not asking for another when out
-//Update to next monster
-//const updateMonster = async function () {
-  // location.reload();
-//}
+fightMonster();
 
 const levelUp = async function () {
   try {
@@ -119,7 +97,27 @@ const updateHP = async function () {
     console.log(error);
   };
 }
+const nextRiddle = async function () {
+  try {
+    const res = await fetch('/api/users/next-riddle', {
+      method: 'POST',
+    });
+
+    if (res.ok) {
+      console.log('riddle up');
+      location.reload();
+    } else {
+      alert('error');
+    }
+  } catch (error) {
+    console.log(error);
+  };
+}
+//---------RUNS WHEN PAGE LOADED---------
+displayMonster();
 
 $levelUp.addEventListener('click', levelUp);
 $lowerHealth.addEventListener('click', updateHP);
+$riddleUp.addEventListener('click', nextRiddle);
+
 
