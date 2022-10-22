@@ -132,6 +132,7 @@ const monsterData = [
         strength: 19,
         image: 'Default',
         description:"The screeching wails of the mandarake are almost loud enough to make your ears bleed. The voice of the plant-like being is so loud it is difficult to make out the riddle it asks, but you manage…"
+        
     },
     {
         name: 'Sphinx',

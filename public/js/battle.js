@@ -1,11 +1,12 @@
 
 let hp = document.currentScript.getAttribute('hp');
 let level = document.currentScript.getAttribute('level');
+let monster = document.currentScript.getAttribute('monster')
 
 //-------TESTING PURPOSES ONLY-------------
 const $lowerHealth = document.getElementById('decrement-health-test');
 const $levelUp = document.getElementById('increase-level-test');
-
+const $inputAnswer = document.getElementById('answer-input');
 console.log(hp);
 console.log(level);
 //------------------------------------------
@@ -14,16 +15,21 @@ console.log(level);
 // make sure the reference number never goes passed the amount of monsters, query for how many rows there are in table 
 const fightMonster = async function () {
   try {
-    const res = await fetch('/api/users/current/now')
+    const res = await fetch('/api/users/current/now', {
+      method: 'GET',
+    });
     
 
     if (res.ok) {
     const user = await res.json();
     console.log(user)
+    } else {
+      alert('error');
     }
+    
   } catch (error) {
-    console.log(err)
-  }
+    console.log(error);
+  };
 }
 
 fightMonster();
@@ -71,4 +77,6 @@ const updateHP = async function () {
 
 $levelUp.addEventListener('click', levelUp);
 $lowerHealth.addEventListener('click', updateHP);
+$inputAnswer.addEventListener('click', fightMonster);
+
 
