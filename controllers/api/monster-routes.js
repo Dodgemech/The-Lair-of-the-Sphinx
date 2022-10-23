@@ -47,16 +47,4 @@ router.get('/:id', (req, res) => {
         });
 });
 
-//Monster count
-router.get('/monster-count', async (req, res) => {
-    const count = await Monster.count({
-        row: 'id',
-    }).then(response => {
-        res.json(response);
-    })  
-    .catch(err => {
-        res.status(500).json(err)
-    })  
-})
-
 module.exports = router;

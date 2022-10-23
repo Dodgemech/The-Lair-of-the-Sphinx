@@ -7,6 +7,7 @@ const $monsterImage = document.getElementById('monster-image');
 const $monsterName = document.getElementById('monster-name');
 const $monsterDescription = document.getElementById('monster-description');
 const $monsterRiddle = document.getElementById('monster-riddle');
+const $answerInput = document.getElementById('answer-input')
 
 const correctAnswer = 'test';
 //-------TESTING PURPOSES ONLY-------------
@@ -33,29 +34,6 @@ async function displayMonster() {
   $monsterDescription.textContent = monster.description;
   $monsterRiddle.textContent = monster.riddles[riddleIndex].question;
 }
-//------------------------------------------
-
-// user has monster Id already stored to them, once that monster is defeated UPDATE user to next monster's id
-// make sure the reference number never goes passed the amount of monsters, query for how many rows there are in table 
-const fightMonster = async function () {
-  try {
-    const res = await fetch('/api/users/current/now')
-
-    if (res.ok) {
-      const user = await res.json();
-      console.log(user)
-    }
-
-    if($answerInput === questions.answer) {
-      updateScore();
-    } else {
-      updateHP();
-    }
-  } catch (error) {
-    console.log(err)
-  }
-}
-fightMonster();
 
 const levelUp = async function () {
   try {
