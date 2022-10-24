@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const {User, Monster} = require('../../models');
 
+
 //GET ROUTES-------------------------------------
 //get all users
 router.get('/', (req,res) => {
@@ -41,6 +42,8 @@ router.get('/:id', (req,res) => {
         res.status(500).json(err);
     });
 })
+
+
 
 // get route for currently logged in user
 router.get('/current/now', (req, res) => {
@@ -115,12 +118,14 @@ router.post('/login', async (req, res) => {
             }
         })
         if(!dbUser) {
-            res.status(404).json('Username not found. Please try again or sign up.')
+            res.status(404).json('Username not found. Please try again or sign up.');
+            document.location.replace('/login');
         }
         const pwValidate = dbUser.checkPassword(req.body.password);
 
         if(!pwValidate) {
-            res.status(404).json('Incorrect password. Please try again.')
+            res.status(404).json('Incorrect password. Please try again.');
+            document.location.replace('/login');
         }
         req.session.save(() => {
             req.session.loggedIn = true;
@@ -188,6 +193,19 @@ router.post('/update-hp',(req,res) => {
     try {
         req.session.hp += hpChange;
         res.json('UPDATED HP');
+    }
+    catch (err) {
+        console.log(err);
+    }
+});
+
+
+
+router.post('/update-score',(req,res) => {
+    scoreChange = parseInt(req.body.scoreChange);
+    try {
+        req.session.score += scoreChange;
+        res.json('UPDATED SCORE');
     }
     catch (err) {
         console.log(err);

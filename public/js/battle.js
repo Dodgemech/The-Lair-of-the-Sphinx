@@ -7,6 +7,7 @@ const $monsterImage = document.getElementById('monster-image');
 const $monsterName = document.getElementById('monster-name');
 const $monsterDescription = document.getElementById('monster-description');
 const $monsterRiddle = document.getElementById('monster-riddle');
+const $answerInput = document.getElementById('answer-input')
 
 // Test ON INPUT BTN
 const $answerInput = document.getElementById('answerInput');
@@ -42,6 +43,7 @@ async function displayMonster() {
   $monsterName.textContent = monster.name;
   $monsterDescription.textContent = monster.description;
   $monsterRiddle.textContent = monster.riddles[riddleIndex].question;
+<<<<<<< HEAD
 };
 //------------------------------------------
 
@@ -90,6 +92,10 @@ const submitAnswer = async (event) => {
 }
   // submitAnswer();
   
+=======
+}
+
+>>>>>>> e9dd7aa9612ad7d161915da1df2a5d52f6214a7a
 const levelUp = async function () {
   try {
     const res = await fetch('/api/users/level-up', {

@@ -41,6 +41,7 @@ $signUpBtn.addEventListener('click', async (event) => {
     
   if (res.ok) {
     console.log('all signed up!');
+    console.log(res);
     document.location.replace('/');
   } else {
     console.log(res)
