@@ -13,7 +13,7 @@ User.init(
     {
         //Account Information
         id: { //We should make this not just a single number. Would be better to have random IDs
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull:false,
             primaryKey:true,
             autoIncrement: true,
@@ -53,7 +53,7 @@ User.init(
         monster_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: Monster,
+                model: 'monster',
                 key: 'id'
             },
             default: 1

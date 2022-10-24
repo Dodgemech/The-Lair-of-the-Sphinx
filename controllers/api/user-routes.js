@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const {User, Monster} = require('../../models');
 
+
 //GET ROUTES-------------------------------------
 //get all users
 router.get('/', (req,res) => {
@@ -42,6 +43,8 @@ router.get('/:id', (req,res) => {
     });
 })
 
+
+
 // get route for currently logged in user
 router.get('/current/now', (req, res) => {
     console.log('test');
@@ -51,7 +54,10 @@ router.get('/current/now', (req, res) => {
         where: {
             id: req.session.userID
         },
-        include: [Monster]
+        include: [{
+            model: Monster,
+            attributes: ['name', 'strength', 'image', 'description']
+        }]
         
     })
     .then(response => {
@@ -95,6 +101,7 @@ router.post('/', async (req, res) => {
             req.session.level = 1;
             req.session.hp = 100;
             req.session.riddleIndex = 0;
+            req.session.monster_id = 1;
             req.session.userID = dbUser.id;
             res.json('You are now logged in!')
          })
@@ -170,6 +177,19 @@ router.post('/update-hp',(req,res) => {
     try {
         req.session.hp += hpChange;
         res.json('UPDATED HP');
+    }
+    catch (err) {
+        console.log(err);
+    }
+});
+
+
+
+router.post('/update-score',(req,res) => {
+    scoreChange = parseInt(req.body.scoreChange);
+    try {
+        req.session.score += scoreChange;
+        res.json('UPDATED SCORE');
     }
     catch (err) {
         console.log(err);

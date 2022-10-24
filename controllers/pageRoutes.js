@@ -33,15 +33,6 @@ router.get('/login', (req, res) => {
     });
   });
 
-router.get('/account', (req, res) => {
-  res.render('account', {
-    loggedIn: req.session.loggedIn,
-    characterName: req.session.characterName,
-    username: req.session.username,
-    hp: req.session.hp,
-    level: req.session.level
-  });
-});
 
 router.get('/battle', authenticate, (req, res) => {
   res.render('battle', {
