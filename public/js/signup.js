@@ -27,6 +27,7 @@ $signUpBtn.addEventListener('click', async (event) => {
     const res = await fetch('/api/users', {
       method: 'POST',
       body: JSON.stringify({
+        id: nanoid(),
         username: userInput,
         password: passwordInput,
         character_name: charNameInput,
@@ -41,7 +42,6 @@ $signUpBtn.addEventListener('click', async (event) => {
     
   if (res.ok) {
     console.log('all signed up!');
-    console.log(res);
     document.location.replace('/');
   } else {
     alert('Unable to sign up!');
