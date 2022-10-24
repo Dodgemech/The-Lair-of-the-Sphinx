@@ -8,7 +8,14 @@ const $monsterName = document.getElementById('monster-name');
 const $monsterDescription = document.getElementById('monster-description');
 const $monsterRiddle = document.getElementById('monster-riddle');
 
-const correctAnswer = 'test';
+// Test ON INPUT BTN
+const $answerInput = document.getElementById('answerInput');
+const $answerInputBtn = document.getElementById('answerInputBtn');
+// const $answerData = document.getElementById('answers');
+
+const correctAns = 0;
+
+// const correctAnswer = 'test';
 //-------TESTING PURPOSES ONLY-------------
 const $lowerHealth = document.getElementById('decrement-health-test');
 const $levelUp = document.getElementById('increase-level-test');
@@ -19,8 +26,11 @@ console.log(level);
 //------------------------------------------
 
 //------DISPLAY MONSTER ON PAGE-------------
-async function displayMonster() {
-  const res = await fetch(`/api/monsters/${level}`);
+// async function displayMonster() {
+const displayMonster = async function() {
+  const res = await fetch(`/api/monsters/${level}`, {
+    method:'GET',
+  });
   const monster = await res.json();
   console.log(monster);
 
@@ -37,25 +47,25 @@ async function displayMonster() {
 
 // user has monster Id already stored to them, once that monster is defeated UPDATE user to next monster's id
 // make sure the reference number never goes passed the amount of monsters, query for how many rows there are in table 
-const fightMonster = async function () {
-  try {
-    const res = await fetch('/api/users/current/now', {
-      method: 'GET',
-    });
+// const fightMonster = async function () {
+//   try {
+//     const res = await fetch('/api/users/current/now', {
+//       method: 'GET',
+//     });
     
 
-    if (res.ok) {
-    const user = await res.json();
-    console.log(user)
-    } else {
-      alert('error');
-    }
+//     if (res.ok) {
+//     const user = await res.json();
+//     console.log(user)
+//     } else {
+//       alert('error');
+//     }
     
-  } catch (error) {
-    console.log(error);
-  };
-}
-fightMonster();
+//   } catch (error) {
+//     console.log(error);
+//   };
+// }
+// fightMonster();
 
 const levelUp = async function () {
   try {
@@ -113,11 +123,186 @@ const nextRiddle = async function () {
     console.log(error);
   };
 }
-//---------RUNS WHEN PAGE LOADED---------
-displayMonster();
 
+// TEST OF ANSWER INPUT/BTN
+
+// $answerBtnInput.addEventListener( 'click', async (event) => {
+const submitAnswer = async (event) => {
+  event.preventDefault();
+
+  const answerValue = $answerInput.value;
+  console.log(submitAnswer);
+  // const questionInput = $answerData.value;
+
+  if (answerValue.trim().length == 0) {
+    alert('Answer must be provided');
+    return;
+  }
+  console.log(answerValue);
+  // if (questionInput.trim().length === 0) {
+  //   alert('');
+  //   return;
+  // }
+
+  try {
+    const res = await fetch('/api/users/current/now', {
+      method: 'GET',
+      body: JSON.stringify({
+        answer: answerValue
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      } 
+    })
+    if (res.ok) {
+      const user = await res.json();
+      console.log(user)
+      location.reload();
+  } else {
+    alert('error');
+  }
+  } catch (error) {
+    console.log(error);
+  }
+}
+// submitAnswer();
+  
+  
+  // try {
+  //   // const checkAnswer = async function () {
+  //     // let out = $('.output').value;
+  //   if (question.$(answerValue) === 0); {
+          
+  //   } else {
+  //     alert('error');
+  //   }
+
+
+  
+// displayMonster()
+// const fightMonster = async function () {
+//   try {
+//     const res = await fetch('/api/users/current/now', {
+//       method: 'GET',
+//     });
+    
+
+//     if (res.ok) {
+//     const user = await res.json();
+//     console.log(user)
+//     } else {
+//       alert('error');
+//     }
+    
+//   } catch (error) {
+//     console.log(error);
+//   };
+// }
+// fightMonster();
+
+    // };
+    // } catch (error) {
+    //   console.log(answerValue);
+    //   }
+
+
+// const nextRiddle = async function () {
+//   console.log(nextRiddle);
+//   try {
+//     const res = await fetch('/api/users/next-riddle', {
+//       method: 'POST',
+//     });
+
+//     if (res.ok) {
+//       console.log('riddle up');
+//       location.reload();
+
+//     } else {
+//       alert('error');
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   };
+// };
+
+
+
+    // if (currentQuestion >= questions.length) {
+    //     showSummary();
+    // } else {
+    //     showQuestion();
+    // }
+
+    // function () {
+    //     $('.output').val('');
+    // };
+  
+
+
+  // try {
+  //   const res = await fetch('/api/users/riddle', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       userAnswer: answerValue
+  //     }),
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //   });
+    
+  //   const checkAnswer = $answerInput;
+  
+  //     if (checkAnswer[riddleIndex].answers === checkAnswer[riddleIndex].answerValue) {
+  //         // correct answer, move to next riddle
+  //         correctAns++;
+  //         // console.log(correctAns);
+  //         answerCheck.textContent = "Bravo!";
+  //     } else {
+  //         // wrong answer, deduct 5 second from HP
+  //         updateHP = -5;
+  //         updateHP.textContent = hpValue;
+  //         answerCheck.textContent = "Womp womp! The correct answer is: " + questions[riddleIndex].answers;
+  //     };
+  
+  //     riddleIndex++;
+    
+  //     console.log(checkAnswer);
+  //     console.log(answers);
+    
+  
+
+//   } catch (error) {
+//     console.log(error);
+//   };
+// })
+
+
+  
+  // //  
+  // if (res.ok) {
+  //   console.log('all signed up!');
+  //   document.location.replace('/');
+  // } else {
+  //   alert('Unable to sign up!');
+  // }
+
+
+
+
+
+
+
+
+
+
+
+
+//---------RUNS WHEN PAGE LOADED---------
+// displayMonster();
+displayMonster()
 $levelUp.addEventListener('click', levelUp);
 $lowerHealth.addEventListener('click', updateHP);
 $riddleUp.addEventListener('click', nextRiddle);
+$answerInputBtn.addEventListener('click', submitAnswer);
 
 

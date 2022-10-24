@@ -43,6 +43,7 @@ $signUpBtn.addEventListener('click', async (event) => {
     console.log('all signed up!');
     document.location.replace('/');
   } else {
+    console.log(res)
     alert('Unable to sign up!');
   }
   } catch (error) {

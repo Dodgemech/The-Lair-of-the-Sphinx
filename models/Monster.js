@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 class Monster extends Model {}
 
-Monster.init(
+Monster. init(
     {
         id: {
             type: DataTypes.INTEGER,
