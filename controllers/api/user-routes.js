@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const {User, Monster} = require('../../models');
 
+
 //GET ROUTES-------------------------------------
 //get all users
 router.get('/', (req,res) => {
@@ -41,6 +42,8 @@ router.get('/:id', (req,res) => {
         res.status(500).json(err);
     });
 })
+
+
 
 // get route for currently logged in user
 router.get('/current/now', (req, res) => {
@@ -174,6 +177,19 @@ router.post('/update-hp',(req,res) => {
     try {
         req.session.hp += hpChange;
         res.json('UPDATED HP');
+    }
+    catch (err) {
+        console.log(err);
+    }
+});
+
+
+
+router.post('/update-score',(req,res) => {
+    scoreChange = parseInt(req.body.scoreChange);
+    try {
+        req.session.score += scoreChange;
+        res.json('UPDATED SCORE');
     }
     catch (err) {
         console.log(err);
