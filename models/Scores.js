@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-// const { User, Monster, Riddle, MonsterRiddle } = require('../models')
-// const bcrypt = require('bcrypt');
+const { User, Monster, Riddle, MonsterRiddle } = require('../models')
+const bcrypt = require('bcrypt');
 class Scores extends Model {};
 
 Scores.init(

@@ -1,4 +1,4 @@
-const { Monster } = newFunction();
+const { Monster } = require('../models');
 
 const monsterData = [
     {
@@ -147,6 +147,9 @@ const seedMonsters = () => Monster.bulkCreate(monsterData);
 
 module.exports = seedMonsters;
 
-function newFunction() {
-    return require('../models');
-}
+// function newFunction() {
+//     return require('../models');
+// }
+// function seedMonsters() {
+//     return require('../models');
+// }

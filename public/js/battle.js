@@ -13,7 +13,7 @@ const $answerInput = document.getElementById('answerInput');
 const $answerInputBtn = document.getElementById('answerInputBtn');
 // const $answerData = document.getElementById('answers');
 
-const correctAns = 0;
+// const correctAns = 0;
 
 // const correctAnswer = 'test';
 //-------TESTING PURPOSES ONLY-------------
@@ -26,8 +26,8 @@ console.log(level);
 //------------------------------------------
 
 //------DISPLAY MONSTER ON PAGE-------------
-// async function displayMonster() {
-const displayMonster = async function() {
+async function displayMonster() {
+// const displayMonster = async function() {
   const res = await fetch(`/api/monsters/${level}`, {
     method:'GET',
   });
@@ -42,31 +42,54 @@ const displayMonster = async function() {
   $monsterName.textContent = monster.name;
   $monsterDescription.textContent = monster.description;
   $monsterRiddle.textContent = monster.riddles[riddleIndex].question;
-}
+};
 //------------------------------------------
 
-// user has monster Id already stored to them, once that monster is defeated UPDATE user to next monster's id
-// make sure the reference number never goes passed the amount of monsters, query for how many rows there are in table 
-// const fightMonster = async function () {
-//   try {
-//     const res = await fetch('/api/users/current/now', {
-//       method: 'GET',
-//     });
-    
 
-//     if (res.ok) {
-//     const user = await res.json();
-//     console.log(user)
-//     } else {
-//       alert('error');
-//     }
-    
-//   } catch (error) {
-//     console.log(error);
-//   };
-// }
-// fightMonster();
 
+// TEST OF ANSWER INPUT/BTN
+
+// $answerBtnInput.addEventListener( 'click', async (event) => {
+const submitAnswer = async (event) => {
+  event.preventDefault();
+  
+  const answerValue = $answerInput.value;
+  console.log(submitAnswer);
+  // const questionInput = $answerData.value;
+  
+  if (answerValue.trim().length == 0) {
+    alert('Answer must be provided');
+    return;
+  }
+  console.log(answerValue);
+    // if (questionInput.trim().length === 0) {
+    //   alert('');
+    //   return;
+    // }
+  
+  try {
+    const res = await fetch('/api/users/current/now', {
+      method: 'GET',
+      body: JSON.stringify({
+        answer: answerValue
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      } 
+    })
+    if (res.ok) {
+      const user = await res.json();
+      console.log(user)
+      location.reload();
+  } else {
+    alert('error');
+  }
+  } catch (error) {
+    console.log(error);
+  }
+}
+  // submitAnswer();
+  
 const levelUp = async function () {
   try {
     const res = await fetch('/api/users/level-up', {
@@ -124,48 +147,48 @@ const nextRiddle = async function () {
   };
 }
 
-// TEST OF ANSWER INPUT/BTN
+// // TEST OF ANSWER INPUT/BTN
 
-// $answerBtnInput.addEventListener( 'click', async (event) => {
-const submitAnswer = async (event) => {
-  event.preventDefault();
+// // $answerBtnInput.addEventListener( 'click', async (event) => {
+// const submitAnswer = async function () {
+//   asyncfunction.preventDefault();
 
-  const answerValue = $answerInput.value;
-  console.log(submitAnswer);
-  // const questionInput = $answerData.value;
+//   const answerValue = $answerInput.value;
+//   console.log(submitAnswer);
+//   // const questionInput = $answerData.value;
 
-  if (answerValue.trim().length == 0) {
-    alert('Answer must be provided');
-    return;
-  }
-  console.log(answerValue);
-  // if (questionInput.trim().length === 0) {
-  //   alert('');
-  //   return;
-  // }
+//   if (answerValue.trim().length == 0) {
+//     alert('Answer must be provided');
+//     return;
+//   }
+//   console.log(answerValue);
+//   // if (questionInput.trim().length === 0) {
+//   //   alert('');
+//   //   return;
+//   // }
 
-  try {
-    const res = await fetch('/api/users/current/now', {
-      method: 'GET',
-      body: JSON.stringify({
-        answer: answerValue
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      } 
-    })
-    if (res.ok) {
-      const user = await res.json();
-      console.log(user)
-      location.reload();
-  } else {
-    alert('error');
-  }
-  } catch (error) {
-    console.log(error);
-  }
-}
-// submitAnswer();
+//   try {
+//     const res = await fetch('/api/users/current/now', {
+//       method: 'GET',
+//       body: JSON.stringify({
+//         answer: answerValue
+//       }),
+//       headers: {
+//         'Content-Type': 'application/json'
+//       } 
+//     })
+//     if (res.ok) {
+//       const user = await res.json();
+//       console.log(user)
+//       location.reload();
+//   } else {
+//     alert('error');
+//   }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+// // submitAnswer();
   
   
   // try {
