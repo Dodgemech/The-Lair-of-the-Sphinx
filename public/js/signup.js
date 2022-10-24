@@ -27,6 +27,7 @@ $signUpBtn.addEventListener('click', async (event) => {
     const res = await fetch('/api/users', {
       method: 'POST',
       body: JSON.stringify({
+        id: nanoid(),
         username: userInput,
         password: passwordInput,
         character_name: charNameInput,

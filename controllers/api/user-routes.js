@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const {User, Monster} = require('../../models');
 
+
 //GET ROUTES-------------------------------------
 //get all users
 router.get('/', (req,res) => {
