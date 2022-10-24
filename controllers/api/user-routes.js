@@ -118,12 +118,14 @@ router.post('/login', async (req, res) => {
             }
         })
         if(!dbUser) {
-            res.status(404).json('Username not found. Please try again or sign up.')
+            res.status(404).json('Username not found. Please try again or sign up.');
+            document.location.replace('/login');
         }
         const pwValidate = dbUser.checkPassword(req.body.password);
 
         if(!pwValidate) {
-            res.status(404).json('Incorrect password. Please try again.')
+            res.status(404).json('Incorrect password. Please try again.');
+            document.location.replace('/login');
         }
         req.session.save(() => {
             req.session.loggedIn = true;
