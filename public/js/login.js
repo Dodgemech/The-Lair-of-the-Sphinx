@@ -3,6 +3,8 @@ const $passwordInput = document.getElementById('passwordInput');
 const $logInBtn = document.getElementById('logInBtn');
 
 
+
+
 $logInBtn.addEventListener('click', async (event) => {
   event.preventDefault();
 
@@ -36,7 +38,9 @@ $logInBtn.addEventListener('click', async (event) => {
       console.log('logged in');
       document.location.replace('/');
     } else {
-      alert('Unable to log in with these credentials!');
+      alert('Incorrect User Name or Password! Please try again!');
+      $passwordInput.value = '';
+      $userNameInput.value = '';
     }
   } catch (error) {
     console.log(error);
