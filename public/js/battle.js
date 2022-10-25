@@ -134,6 +134,9 @@ const nextRiddle = async function () {
 
 //---------RUNS WHEN PAGE LOADED---------
 displayMonster();
+window.addEventListener('load',function() {
+  $answerInput.focus();
+});
 $levelUp.addEventListener('click', levelUp);
 // $lowerHealth.addEventListener('click', updateHP);
 // $riddleUp.addEventListener('click', nextRiddle);
