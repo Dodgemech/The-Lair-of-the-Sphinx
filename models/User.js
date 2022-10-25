@@ -3,14 +3,16 @@ const sequelize = require('../config/connection');
 const { Monster } = require('../models')
 const bcrypt = require('bcrypt');
 const nanoid = require('nanoid');
+<<<<<<< HEAD
 
+=======
+>>>>>>> fca515a19eddb2501a30106293a2268232cfaa04
 
 class User extends Model {
     checkPassword(loginPW) {
         return bcrypt.compareSync(loginPW, this.password)
     }
 }
-
 
 
 User.init(
@@ -66,6 +68,7 @@ User.init(
     },
     {
         hooks: { //hashed PW so that its not plain text
+
             async beforeCreate(newUserInfo) {
                 newUserInfo.password = await bcrypt.hash(newUserInfo.password,10);
                 return newUserInfo;
