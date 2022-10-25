@@ -54,7 +54,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(routes);
 
 //Sets up sequelize and starts server <><><><><><><><><>
-sequelize.sync({ force: true }).then(()=> {
+sequelize.sync({ force: false }).then(()=> {
     app.listen(PORT, () => console.log(`
 o======={=============================================>
 
