@@ -10,7 +10,7 @@ const session = require('express-session');
 
 // config for handlebars
     //Helper functions for handlebars
-    const helpers = require('./utils/helpers');
+const helpers = require('./utils/helpers');
 const hbs = exphbs.create({ helpers });
 const app = express();
 const PORT = process.env.PORT || 3001;
