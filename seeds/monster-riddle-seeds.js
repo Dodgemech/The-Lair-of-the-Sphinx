@@ -230,7 +230,7 @@ const monsterRiddleData = [
     {
         monster_id: 18,
         riddle_id:39,
-    }
+    },
     //--------------------------------------- 
     {
         monster_id: 19,
