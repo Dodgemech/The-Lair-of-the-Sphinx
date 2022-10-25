@@ -18,7 +18,6 @@ User.init(
             type: DataTypes.STRING,
             allowNull:false,
             primaryKey:true,
-            defaultValue: nanoid()
         },
         username: {
             type: DataTypes.STRING,

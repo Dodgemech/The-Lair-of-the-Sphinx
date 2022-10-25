@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const nanoid = require('nanoid');
 const {User, Monster} = require('../../models');
 
 
@@ -91,6 +92,7 @@ router.post('/', async (req, res) => {
         return;
     }
     try {
+        req.body.id = nanoid();
         const dbUser = await User.create(
             req.body
         )
