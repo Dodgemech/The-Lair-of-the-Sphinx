@@ -176,7 +176,7 @@ const monsterRiddleData = [
     },
     {
         monster_id: 14,
-        riddle_id:1,
+        riddle_id:41,
     },
     //--------------------------------------- 
     {
@@ -219,30 +219,18 @@ const monsterRiddleData = [
     },
     {
         monster_id: 17,
-        riddle_id:28,
+        riddle_id:40,
     },
     {
         monster_id: 17,
-        riddle_id:29,
+        riddle_id:42,
     },
 
     //--------------------------------------- 
     {
         monster_id: 18,
         riddle_id:39,
-    },
-    {
-        monster_id: 18,
-        riddle_id:40,
-    },
-    {
-        monster_id: 18,
-        riddle_id:41,
-    },
-    {
-        monster_id: 18,
-        riddle_id:42,
-    },
+    }
     //--------------------------------------- 
     {
         monster_id: 19,

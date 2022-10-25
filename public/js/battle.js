@@ -37,7 +37,9 @@ async function displayMonster() {
   $monsterName.textContent = monster.name;
   $monsterDescription.textContent = monster.description;
   $monsterRiddle.textContent = monster.riddles[riddleIndex].question;
+
   riddleAnswer = monster.riddles[riddleIndex].answers;
+  monsterStrength = monster.strength;
 }
 
 //------------------------------------------
@@ -92,7 +94,7 @@ const levelUp = async function () {
 
 const updateHP = async function () {
   try {
-    const hpValue = (-5);
+    const hpValue = (-monsterStrength);
     const res = await fetch('/api/users/update-hp', {
       method: 'POST',
       body: JSON.stringify({
