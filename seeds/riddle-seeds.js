@@ -8,8 +8,8 @@ const riddleData = [
     },
     {
 
-        question: "I’m tall when I’m young, and I’m short when I’m old. What am I? A _____",
-        answers: "apple"
+        question: "I’m tall when I’m young, and I’m short when I’m old. What am I? A ______",
+        answers: "candle"
     },
     {
         question: "What is full of holes but still holds water? A ______",
@@ -85,8 +85,8 @@ const riddleData = [
         answers: "clock"
     },
     {
-        question: "What has legs, but doesn’t walk? A _____",
-        answers: "table"
+        question: "I have lakes with no water, mountains with no stone and cities with no buildings. What am I? A ___",
+        answers: "map"
     },
     {
         question: "What has one head, one foot and four legs? A ___",
@@ -154,12 +154,12 @@ const riddleData = [
         answers: "few"
     },
     {
-        question: "What word of five letters has one left when two are removed? _____",
-        answers: "stone"
-    },
-    {
         question: "What word is pronounced the same if you take away four of its five letters? _____",
         answers: "queue"
+    },
+    {
+        question: "What word of five letters has one left when two are removed? _____",
+        answers: "stone"
     },
     {
         question: "What word in the English language does the following: The first two letters signify a male, the first three letters signify a female, the first four letters signify a great, while the entire world signifies a great woman. What is the word? _______",
@@ -179,7 +179,7 @@ const riddleData = [
         answers: "light"
     },
     {
-        question: "If you drop me I’m sure to crack, but give me a smile and I’ll always smile back. What am I? A ___________",
+        question: "If you drop me I’m sure to crack, but give me a smile and I’ll always smile back. What am I? A ______",
         answers: "mirror"
     },
     {
@@ -207,8 +207,8 @@ const riddleData = [
         answers: "stapler"
     },
     {
-        question: "I have lakes with no water, mountains with no stone and cities with no buildings. What am I? A ___",
-        answers: "map"
+        question: "What goes on four legs in the morning, two legs in the afternoon, and three legs in the evening? ___",
+        answers: "man"
     }
 ]
 
