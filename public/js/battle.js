@@ -50,12 +50,12 @@ async function displayMonster() {
 
 const submitAnswer = async function(event) {
   event.preventDefault();
-  let answerValue = $answerInput.value;
-  if (answerValue.trim().length == 'undefined') {
+  let answerValue = $answerInput.value.toLowerCase();
+  if (answerValue.trim().length == 0) {
     alert('Answer must be provided');
     return;
   }
-  console.log(answerValue);
+  
 
   try {
 
