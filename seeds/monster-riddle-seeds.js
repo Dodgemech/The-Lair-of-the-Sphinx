@@ -219,14 +219,22 @@ const monsterRiddleData = [
     },
     {
         monster_id: 17,
-        riddle_id:39,
+        riddle_id:28,
     },
     {
         monster_id: 17,
-        riddle_id:40,
+        riddle_id:29,
     },
 
     //--------------------------------------- 
+    {
+        monster_id: 18,
+        riddle_id:39,
+    },
+    {
+        monster_id: 18,
+        riddle_id:40,
+    },
     {
         monster_id: 18,
         riddle_id:41,
@@ -235,15 +243,15 @@ const monsterRiddleData = [
         monster_id: 18,
         riddle_id:42,
     },
+    //--------------------------------------- 
     {
-        monster_id: 18,
+        monster_id: 19,
         riddle_id:43,
     },
     {
-        monster_id: 18,
+        monster_id: 19,
         riddle_id:44,
     },
-    //--------------------------------------- 
     {
         monster_id: 19,
         riddle_id:45,
@@ -252,15 +260,15 @@ const monsterRiddleData = [
         monster_id: 19,
         riddle_id:46,
     },
+    //--------------------------------------- 
     {
-        monster_id: 19,
+        monster_id: 20,
         riddle_id:47,
     },
     {
-        monster_id: 19,
+        monster_id: 20,
         riddle_id:48,
     },
-    //--------------------------------------- 
     {
         monster_id: 20,
         riddle_id:49,
@@ -272,14 +280,6 @@ const monsterRiddleData = [
     {
         monster_id: 20,
         riddle_id:51,
-    },
-    {
-        monster_id: 20,
-        riddle_id:52,
-    },
-    {
-        monster_id: 20,
-        riddle_id:53,
     },
 ]
 
