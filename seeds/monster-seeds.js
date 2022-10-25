@@ -4,14 +4,14 @@ const monsterData = [
     {
         name: 'Unusually Sized Rodent',
         level: 1,
-        strength: 4,
+        strength: 2,
         image: 'rat.png',
         description:"Usually found in more swampy environments it appears one of these plus size vermin made its way into this dungeon. Watch out for its sharp incisors!"
     },
     {
         name: 'Bat',
         level: 1,
-        strength: 6,
+        strength: 2,
         image: 'bat.png',
         description:"Scree! Scree!! Scree!!!"
     },
@@ -109,40 +109,47 @@ const monsterData = [
     {
         name: 'Vampire',
         level: 1,
-        strength: 14,
+        strength: 5,
         image: 'vampire.png',
         description:"It would seem that a coven of vampires has taken up residence within the Sphinx’s lair. Beware these ferocious bloodsuckers! They are known for their high intelligence."
     },
     {
         name: 'Tri-Death',
         level: 1,
-        strength: 4,
+        strength: 5,
         image: 'tri-death.png',
         description:"A horrible amalgamation of skulls and black magic. Its breath carries death and can make plants wither and die. Beware!"
     },
     {
         name: 'Gorgon',
         level: 1,
-        strength: 4,
+        strength: 100,
         image: 'gorgon.png',
         description:"This hideous beast is able to turn people to stone with a single glare! Make sure to answer any riddles it poses correctly or you will find yourself defeated instantly!"
     },
     {
         name: 'Cursed Dragon',
         level: 1,
-        strength: 4,
+        strength: 5,
         image: 'cursed-dragon.png',
         description:"An ancient and ferocious dragon befallen by a terrible curse. Although it appears to be in pain, it has tremendous strength and wields fell magic. Be extremely careful fighting this beast!"
     },
     {
         name: 'Sphinx',
         level: 1,
-        strength: 5,
-        image: 'cursed-sword.png',
+        strength: 10,
+        image: 'sphinx.png',
         description:"The Mighty Sphinx, Master of this dungeon and wielder of many powerful and ancient magics, stands before you. You ready your blade and prepare your mind as she utters her riddle. This is it. Defeat her and the treasure is yours brave hero!"
     }
 ]
-
+    
 const seedMonsters = () => Monster.bulkCreate(monsterData);
 
 module.exports = seedMonsters;
+
+// function newFunction() {
+//     return require('../models');
+// }
+// function seedMonsters() {
+//     return require('../models');
+// }
