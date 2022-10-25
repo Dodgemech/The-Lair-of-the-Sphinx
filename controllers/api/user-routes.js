@@ -98,10 +98,10 @@ router.post('/', async (req, res) => {
             req.session.loggedIn = true;
             req.session.username = dbUser.username;
             req.session.characterName = dbUser.character_name;
+            req.session.characterGender = dbUser.character_gender;
             req.session.level = 1;
             req.session.hp = 100;
             req.session.riddleIndex = 0;
-            req.session.monster_id = 1;
             req.session.userID = dbUser.id;
             res.json('You are now logged in!')
          })
@@ -132,6 +132,7 @@ router.post('/login', async (req, res) => {
             req.session.loggedIn = true;
             req.session.username = dbUser.username;
             req.session.characterName = dbUser.character_name;
+            req.session.characterGender = dbUser.character_gender;
             req.session.level = 1;
             req.session.hp = 100;
             req.session.riddleIndex = 0;

@@ -30,6 +30,7 @@ async function displayMonster() {
   const monster = await res.json();
 
   if (typeof monster.riddles[riddleIndex] == 'undefined') {
+    window.alert("The monster has been slain!")
     levelUp();
     return;
   }
@@ -60,7 +61,6 @@ const submitAnswer = async function(event) {
   try {
 
     if (answerValue === riddleAnswer) {
-      alert('Answer Correct!');
       nextRiddle();    
 
     } else {
