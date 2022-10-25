@@ -7,7 +7,17 @@ const $monsterName = document.getElementById('monster-name');
 const $monsterDescription = document.getElementById('monster-description');
 const $monsterRiddle = document.getElementById('monster-riddle');
 
-let riddleAnswer;
+
+let checkAnswer;
+function setupAnswer(answer) {
+  let riddleAnswer = answer;
+  return function(userAnswer) {
+    if (userAnswer === riddleAnswer) {
+      return true;
+    }
+    return false;
+  }
+}
 
 // Test ON INPUT BTN
 const $answerInput = document.getElementById('answerInput');
@@ -50,7 +60,8 @@ async function displayMonster() {
   $monsterDescription.textContent = monster.description;
   $monsterRiddle.textContent = monster.riddles[riddleIndex].question;
 
-  riddleAnswer = monster.riddles[riddleIndex].answers;
+  checkAnswer = setupAnswer(monster.riddles[riddleIndex].answers);
+
   monsterStrength = monster.strength;
 }
 
@@ -62,18 +73,15 @@ async function displayMonster() {
 
 const submitAnswer = async function (event) {
   event.preventDefault();
-  let answerValue = $answerInput.value.toLowerCase();
-  if (answerValue.trim().length == 0) {
+  let answerValue = $answerInput.value;
+  let answerLower = answerValue.toLowerCase();
+  if (answerValue.trim().length == 'undefined') {
     alert('Answer must be provided');
     return;
   }
-
-
   try {
-
     if (answerValue === riddleAnswer) {
       nextRiddle();
-
     } else {
       alert('Boo! Answer Incorrect')
       updateHP();
