@@ -79,6 +79,14 @@ router.get('/high_scores', (req, res) => {
   })
 })
 
-
+router.get('/game-over', (req, res) => {
+  res.render('game-over', {
+    loggedIn: req.session.loggedIn,
+    characterName: req.session.characterName,
+    username: req.session.username,
+    hp: req.session.hp,
+    characterScore: req.session.characterScore,
+  })
+})
 
 module.exports = router;

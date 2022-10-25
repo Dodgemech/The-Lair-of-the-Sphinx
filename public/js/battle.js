@@ -23,12 +23,23 @@ const $levelUp = document.getElementById('increase-level-test');
 console.log(hp);
 console.log(level);
 //------------------------------------------
+async function gameOver() {
+  try {
+    if (level > 20 || hp <= 0) {
+      document.location.replace('/game-over')
+    }
+    else {
+      displayMonster();
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 //------DISPLAY MONSTER ON PAGE-------------
 async function displayMonster() {
   const res = await fetch(`/api/monsters/${level}`);
   const monster = await res.json();
-
   if (typeof monster.riddles[riddleIndex] == 'undefined') {
     window.alert("The monster has been slain!")
     levelUp();
@@ -49,32 +60,30 @@ async function displayMonster() {
 
 // TEST OF ANSWER INPUT/BTN
 
-const submitAnswer = async function(event) {
+const submitAnswer = async function (event) {
   event.preventDefault();
   let answerValue = $answerInput.value.toLowerCase();
   if (answerValue.trim().length == 0) {
     alert('Answer must be provided');
     return;
   }
-  
+
 
   try {
 
     if (answerValue === riddleAnswer) {
-      nextRiddle();    
+      nextRiddle();
 
     } else {
       alert('Boo! Answer Incorrect')
       updateHP();
     }
-    
+
   } catch (error) {
     console.log(error);
   };
 }
 
-
-  
 const levelUp = async function () {
   try {
     const res = await fetch('/api/users/level-up', {
@@ -133,8 +142,9 @@ const nextRiddle = async function () {
 }
 
 //---------RUNS WHEN PAGE LOADED---------
-displayMonster();
-window.addEventListener('load',function() {
+gameOver();
+//displayMonster();
+window.addEventListener('load', function () {
   $answerInput.focus();
 });
 $levelUp.addEventListener('click', levelUp);
