@@ -30,7 +30,7 @@
         </li>
         {{#if loggedIn}}
         <li class="nav-item">
-          <a class="nav-link"  href="/account">{{username}}</a>
+          <a class="nav-link">{{username}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="logOutBtn" href="/logout">Logout</a>
@@ -39,6 +39,9 @@
         {{else}}
         <li class="nav-item">
           <a class="nav-link" href="/login">Login</a>
+        </li>
+               <li class="nav-item">
+          <a class="nav-link" href="/signup">Sign Up!</a>
         </li>
         {{/if}}
       </ul>

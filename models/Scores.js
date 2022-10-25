@@ -14,7 +14,7 @@ Scores.init(
             autoIncrement: true
         },
         user_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             references: {
                 model: 'user',
                 key: 'id'
