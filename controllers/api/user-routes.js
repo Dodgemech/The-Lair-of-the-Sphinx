@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const nanoid = require('nanoid');
 const {User, Monster} = require('../../models');
 
 
@@ -91,6 +92,7 @@ router.post('/', async (req, res) => {
         return;
     }
     try {
+        req.body.id = nanoid();
         const dbUser = await User.create(
             req.body
         )
@@ -175,19 +177,6 @@ router.post('/next-riddle',(req,res) => {
     }
 });
 
-
-// router.post('/submit-answer',(req,res) => {
-//     try {
-//         if (res.ok) {
-//             req.session.riddleIndex += 1;
-//             res.json('SUBMITTED answer');
-//             console.log(res);
-//         }
-//     }
-//     catch (err) {
-//         console.log(err);
-//     }
-// });
 
 //Change HP
 router.post('/update-hp',(req,res) => {
