@@ -12,7 +12,6 @@ class User extends Model {
 
 
 User.init(
-    
     {
         //Account Information
         id: { //We should make this not just a single number. Would be better to have random IDs
@@ -64,7 +63,6 @@ User.init(
     },
     {
         hooks: { //hashed PW so that its not plain text
-
             async beforeCreate(newUserInfo) {
                 newUserInfo.password = await bcrypt.hash(newUserInfo.password,10);
                 return newUserInfo;

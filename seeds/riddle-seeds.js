@@ -3,81 +3,81 @@ const { Riddle } = require('../models');
 const riddleData = [
     {
         // Easy Riddles
-        question: "What has to be broken before you can use it? An ___________" ,
+        question: "What has to be broken before you can use it? An ___" ,
         answers: "egg"
     },
     {
 
-        question: "I’m tall when I’m young, and I’m short when I’m old. What am I? A ___________",
+        question: "I’m tall when I’m young, and I’m short when I’m old. What am I? A _____",
         answers: "apple"
     },
     {
-        question: "What is full of holes but still holds water? A ___________",
+        question: "What is full of holes but still holds water? A ______",
         answers: "sponge"
     },
     {
-        question: "What is always in front of you but can’t be seen? The ___________",
+        question: "What is always in front of you but can’t be seen? The ______",
         answers: "future"
     },
     {
-        question: "What can you break, even if you never pick it up or touch it? A ___________",
+        question: "What can you break, even if you never pick it up or touch it? A ______",
         answers: "promise"
     },
     {
-        question: "What gets wet while drying? A ___________",
+        question: "What gets wet while drying? A _____",
         answers: "towel"
     },
     {
-        question: "I shave every day, but my beard stays the same. What am I? A ___________",
+        question: "I shave every day, but my beard stays the same. What am I? A ______",
         answers: "barber"
     },
     {
-        question: "You walk into a room that contains a match, a kerosene lamp, a candle and a fireplace. What would you light first? A ___________",
+        question: "You walk into a room that contains a match, a kerosene lamp, a candle and a fireplace. What would you light first? A _____",
         answers: "match"
     },
     {
-        question: "I have branches, but no fruit, trunk or leaves. What am I? A ___________",
+        question: "I have branches, but no fruit, trunk or leaves. What am I? A ____",
         answers: "bank"
     },
     {
-        question: "What can’t talk but will reply when spoken to? An ___________",
+        question: "What can’t talk but will reply when spoken to? An _____",
         answers: "echo"
     },
     {
-        question: "The more of this there is, the less you see. What is it?  ___________",
+        question: "The more of this there is, the less you see. What is it?  ________",
         answers: "darkness"
     },
     {
-        question: "David’s parents have three sons: Snap, Crackle, and what’s the name of the third son?  ___________",
+        question: "David’s parents have three sons: Snap, Crackle, and what’s the name of the third son?  _____",
         answers: "david"
     },
     {
-        question: "What has many keys but can’t open a single lock? A ___________",
+        question: "What has many keys but can’t open a single lock? A _____",
         answers: "piano"
     },
     {
-        question: "What gets bigger when more is taken away? A ___________",
+        question: "What gets bigger when more is taken away? A ____",
         answers: "hole"
     },
     {
-        question: "Where does today come before yesterday? The ___________",
+        question: "Where does today come before yesterday? The _________",
         answers: "dictionary"
     },
     {
-        question: "If you’ve got me, you want to share me; if you share me, you haven’t kept me. What am I? A ___________",
+        question: "If you’ve got me, you want to share me; if you share me, you haven’t kept me. What am I? A ______",
         answers: "secret"
     },
     {
-        question: "What goes up and down but doesn’t move? A ___________",
+        question: "What goes up and down but doesn’t move? A _________",
         answers: "staircase"
     },
     {
         // Funny riddles
-        question: "What has lots of eyes, but can’t see? A ___________",
+        question: "What has lots of eyes, but can’t see? A ______",
         answers: "potato"
     },
     {
-        question: "What has one eye, but can’t see? A ___________",
+        question: "What has one eye, but can’t see? A ______",
         answers: "needle"
     },
     {
