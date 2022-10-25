@@ -4,14 +4,14 @@ const monsterData = [
     {
         name: 'Unusually Sized Rodent',
         level: 1,
-        strength: 4,
+        strength: 2,
         image: 'rat.png',
         description:"Usually found in more swampy environments it appears one of these plus size vermin made its way into this dungeon. Watch out for its sharp incisors!"
     },
     {
         name: 'Bat',
         level: 1,
-        strength: 6,
+        strength: 2,
         image: 'bat.png',
         description:"Scree! Scree!! Scree!!!"
     },
@@ -109,7 +109,7 @@ const monsterData = [
     {
         name: 'Vampire',
         level: 1,
-        strength: 14,
+        strength: 4,
         image: 'vampire.png',
         description:"It would seem that a coven of vampires has taken up residence within the Sphinx’s lair. Beware these ferocious bloodsuckers! They are known for their high intelligence."
     },
