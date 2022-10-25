@@ -29,13 +29,8 @@
     "express-session": "^1.17.3",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
-<<<<<<< HEAD
-    "pug": "^3.0.2",
-    "sequelize": "^6.25.3"
-=======
-    "nanoid": "^4.0.0",
+    "nanoid": "^2.1.11",
     "sequelize": "^6.24.0"
->>>>>>> e9dd7aa9612ad7d161915da1df2a5d52f6214a7a
   }
 }
 

@@ -2,6 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const { Monster } = require('../models')
 const bcrypt = require('bcrypt');
+const nanoid = require('nanoid');
 
 
 class User extends Model {
@@ -17,10 +18,10 @@ User.init(
     {
         //Account Information
         id: { //We should make this not just a single number. Would be better to have random IDs
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull:false,
             primaryKey:true,
-            autoIncrement: true
+            defaultValue: nanoid()
         },
         username: {
             type: DataTypes.STRING,

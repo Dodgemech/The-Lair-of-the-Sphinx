@@ -1,11 +1,7 @@
 const router = require('express').Router();
-<<<<<<< HEAD
-const {Monster, Riddle} = require('../../models');
-=======
 const { Monster, Riddle, MonsterRiddle } = require('../../models');
->>>>>>> e9dd7aa9612ad7d161915da1df2a5d52f6214a7a
 
-//
+
 router.get('/', (req, res) => {
     Monster.findAll({
         include: [

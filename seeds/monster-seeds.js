@@ -130,16 +130,9 @@ const monsterData = [
     {
         name: 'Cursed Dragon',
         level: 1,
-<<<<<<< HEAD
-        strength: 19,
-        image: 'mandarake.png',
-        description:"The screeching wails of the mandarake are almost loud enough to make your ears bleed. The voice of the plant-like being is so loud it is difficult to make out the riddle it asks, but you manage…"
-        
-=======
         strength: 4,
         image: 'cursed-dragon.png',
         description:"An ancient and ferocious dragon befallen by a terrible curse. Although it appears to be in pain, it has tremendous strength and wields fell magic. Be extremely careful fighting this beast!"
->>>>>>> e9dd7aa9612ad7d161915da1df2a5d52f6214a7a
     },
     {
         name: 'Sphinx',
