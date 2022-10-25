@@ -48,8 +48,8 @@ const riddleData = [
         answers: "darkness"
     },
     {
-        question: "David’s parents have three sons: Snap, Crackle, and what’s the name of the third son?  _____",
-        answers: "david"
+        question: "Jim’s parents have three sons: Snap, Crackle, and what’s the name of the third son?  _____",
+        answers: "jim"
     },
     {
         question: "What has many keys but can’t open a single lock? A _____",
