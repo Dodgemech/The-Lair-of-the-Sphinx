@@ -1,4 +1,3 @@
-
 let hp = document.currentScript.getAttribute('hp');
 let level = document.currentScript.getAttribute('level');
 let riddleIndex = document.currentScript.getAttribute('riddleIndex');
@@ -7,13 +6,19 @@ const $monsterImage = document.getElementById('monster-image');
 const $monsterName = document.getElementById('monster-name');
 const $monsterDescription = document.getElementById('monster-description');
 const $monsterRiddle = document.getElementById('monster-riddle');
-const $answerInput = document.getElementById('answer-input')
 
-const correctAnswer = 'test';
+let riddleAnswer;
+
+// Test ON INPUT BTN
+const $answerInput = document.getElementById('answerInput');
+const $answerInputBtn = document.getElementById('answerInputBtn');
+
+
 //-------TESTING PURPOSES ONLY-------------
-const $lowerHealth = document.getElementById('decrement-health-test');
+// const $lowerHealth = document.getElementById('decrement-health-test');
 const $levelUp = document.getElementById('increase-level-test');
-const $riddleUp = document.getElementById('increase-riddle-index');
+// const $riddleUp = document.getElementById('increase-riddle-index');
+
 
 console.log(hp);
 console.log(level);
@@ -23,7 +28,6 @@ console.log(level);
 async function displayMonster() {
   const res = await fetch(`/api/monsters/${level}`);
   const monster = await res.json();
-  console.log(monster);
 
   if (typeof monster.riddles[riddleIndex] == 'undefined') {
     levelUp();
@@ -33,8 +37,42 @@ async function displayMonster() {
   $monsterName.textContent = monster.name;
   $monsterDescription.textContent = monster.description;
   $monsterRiddle.textContent = monster.riddles[riddleIndex].question;
+  riddleAnswer = monster.riddles[riddleIndex].answers;
 }
 
+//------------------------------------------
+
+
+
+// TEST OF ANSWER INPUT/BTN
+
+const submitAnswer = async function(event) {
+  event.preventDefault();
+  let answerValue = $answerInput.value;
+  if (answerValue.trim().length == 'undefined') {
+    alert('Answer must be provided');
+    return;
+  }
+  console.log(answerValue);
+
+  try {
+
+    if (answerValue === riddleAnswer) {
+      alert('Answer Correct!');
+      nextRiddle();    
+
+    } else {
+      alert('Boo! Answer Incorrect')
+      updateHP();
+    }
+    
+  } catch (error) {
+    console.log(error);
+  };
+}
+
+
+  
 const levelUp = async function () {
   try {
     const res = await fetch('/api/users/level-up', {
@@ -91,11 +129,12 @@ const nextRiddle = async function () {
     console.log(error);
   };
 }
+
 //---------RUNS WHEN PAGE LOADED---------
 displayMonster();
-
 $levelUp.addEventListener('click', levelUp);
-$lowerHealth.addEventListener('click', updateHP);
-$riddleUp.addEventListener('click', nextRiddle);
+// $lowerHealth.addEventListener('click', updateHP);
+// $riddleUp.addEventListener('click', nextRiddle);
+$answerInputBtn.addEventListener('click', submitAnswer);
 
 

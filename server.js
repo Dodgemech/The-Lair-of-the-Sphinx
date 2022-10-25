@@ -1,4 +1,3 @@
-
 require('dotenv').config();
 
 //Requirements for Sequelize
@@ -30,9 +29,24 @@ const sessionSettings = {
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+
 // Allows public folder to be used
 app.use(session(sessionSettings));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// TEST FOR IMAGES
+
+// app.use(express.static('public/images'));
+// app.get("/dynamic", (req, res) => {
+//     imageList = [];
+//     imageList.push({ src: "icons/flask.png", name: "flask" });
+//     imageList.push({ src: "icons/javascript.png", name: "javascript" });
+//     imageList.push({ src: "icons/react.png", name: "react" });
+//     res.render("dynamic", { imageList: imageList });
+// });
+
+
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
