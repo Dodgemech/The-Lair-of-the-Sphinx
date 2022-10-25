@@ -1,7 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
-const { User, Monster, Riddle, MonsterRiddle } = require('../models')
+//temporarily commented these out because it was the circular dependency
+// const { User, Monster, Riddle, MonsterRiddle } = require('../models')
 class Scores extends Model {};
 
 Scores.init(

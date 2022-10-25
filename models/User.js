@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const { Monster } = require('../models')
 const bcrypt = require('bcrypt');
 const nanoid = require('nanoid');
 
