@@ -69,16 +69,6 @@ router.get('/info', (req, res) => {
   
   });
 
-// router.get('/high_scores', (req, res) => {
-//   res.render('score', {
-//     loggedIn: req.session.loggedIn,
-//     characterName: req.session.characterName,
-//     username: req.session.username,
-//     hp: req.session.hp,
-//     characterScore: req.session.characterScore,
-//   })
-// })
-
 router.get('/game-over', (req, res) => {
   res.render('game-over', {
     loggedIn: req.session.loggedIn,
