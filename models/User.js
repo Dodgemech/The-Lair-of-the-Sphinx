@@ -2,12 +2,14 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const { Monster } = require('../models')
 const bcrypt = require('bcrypt');
+const nanoid = require('nanoid');
 
 class User extends Model {
     checkPassword(loginPW) {
         return bcrypt.compareSync(loginPW, this.password)
     }
 }
+
 
 User.init(
     {
@@ -16,7 +18,7 @@ User.init(
             type: DataTypes.STRING,
             allowNull:false,
             primaryKey:true,
-            autoIncrement: true,
+            defaultValue: nanoid()
         },
         username: {
             type: DataTypes.STRING,
