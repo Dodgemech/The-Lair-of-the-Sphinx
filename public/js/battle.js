@@ -28,7 +28,6 @@ console.log(level);
 async function displayMonster() {
   const res = await fetch(`/api/monsters/${level}`);
   const monster = await res.json();
-  console.log(monster); 
 
   if (typeof monster.riddles[riddleIndex] == 'undefined') {
     levelUp();
