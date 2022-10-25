@@ -73,13 +73,12 @@ async function displayMonster() {
 
 const submitAnswer = async function (event) {
   event.preventDefault();
-  let answerValue = $answerInput.value.toLowerCase();
-  if (answerValue.trim().length == 0) {
+  let answerValue = $answerInput.value;
+  let answerLower = answerValue.toLowerCase();
+  if (answerValue.trim().length == 'undefined') {
     alert('Answer must be provided');
     return;
   }
-
-
   try {
     if (answerValue === riddleAnswer) {
       nextRiddle();
