@@ -142,7 +142,14 @@ const monsterData = [
         description:"The Mighty Sphinx, Master of this dungeon and wielder of many powerful and ancient magics, stands before you. You ready your blade and prepare your mind as she utters her riddle. This is it. Defeat her and the treasure is yours brave hero!"
     }
 ]
-
+    
 const seedMonsters = () => Monster.bulkCreate(monsterData);
 
 module.exports = seedMonsters;
+
+// function newFunction() {
+//     return require('../models');
+// }
+// function seedMonsters() {
+//     return require('../models');
+// }

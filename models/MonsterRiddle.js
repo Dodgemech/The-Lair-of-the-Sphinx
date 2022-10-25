@@ -15,7 +15,9 @@ MonsterRiddle. init(
             type: DataTypes.INTEGER,
             references: {
                 model: 'monster',
-                ket: 'id'
+                ket: 'id',
+                default: 1
+
             }
         },
         riddle_id: {

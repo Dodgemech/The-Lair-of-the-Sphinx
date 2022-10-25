@@ -55,8 +55,8 @@ router.get('/current/now', (req, res) => {
             id: req.session.userID
         },
         include: [{
-            model: Monster,
-            attributes: ['name', 'strength', 'image', 'description']
+            model: Monster, 
+            attributes: [ 'name', 'strength', 'image', 'description']
         }]
         
     })
@@ -173,6 +173,20 @@ router.post('/next-riddle',(req,res) => {
         console.log(err);
     }
 });
+
+
+// router.post('/submit-answer',(req,res) => {
+//     try {
+//         if (res.ok) {
+//             req.session.riddleIndex += 1;
+//             res.json('SUBMITTED answer');
+//             console.log(res);
+//         }
+//     }
+//     catch (err) {
+//         console.log(err);
+//     }
+// });
 
 //Change HP
 router.post('/update-hp',(req,res) => {
