@@ -80,7 +80,7 @@ const submitAnswer = async function (event) {
     return;
   }
   try {
-    if (checkAnswer()) {
+    if (checkAnswer(answerValue)) {
       nextRiddle();
     } else {
       alert('Boo! Answer Incorrect')
