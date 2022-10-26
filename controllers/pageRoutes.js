@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Monster, MonsterRiddle, Riddle, User, Scores } = require('../models');
 const authenticate = require('../utils/auth');
+const checkStats = require('../utils/check-stats');
 
 router.get('/', (req, res) => {
     res.render('homepage', {
@@ -69,7 +70,7 @@ router.get('/info', (req, res) => {
   
   });
 
-router.get('/game-over', (req, res) => {
+router.get('/game-over', checkStats, (req, res) => {
   res.render('game-over', {
     loggedIn: req.session.loggedIn,
     characterName: req.session.characterName,
