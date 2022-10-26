@@ -61,7 +61,7 @@ async function displayMonster() {
   $monsterRiddle.textContent = monster.riddles[riddleIndex].question;
 
   checkAnswer = setupAnswer(monster.riddles[riddleIndex].answers);
-
+  
   monsterStrength = monster.strength;
 }
 
@@ -80,7 +80,7 @@ const submitAnswer = async function (event) {
     return;
   }
   try {
-    if (answerValue === riddleAnswer) {
+    if (checkAnswer()) {
       nextRiddle();
     } else {
       alert('Boo! Answer Incorrect')
