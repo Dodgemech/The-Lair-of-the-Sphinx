@@ -1,6 +1,9 @@
+{{!-- Player's Stats --}}
 
-
-
+<div class="battle-stats">
+      <h3> - {{characterName}} - HP: {{hp}} - Level: {{level}} -</h3>
+    <h3>VS</h3>
+</div>
 
 
 {{!-- MONSTER's STATS --}}
@@ -28,8 +31,7 @@
 
 <hr>
 <p>Use the buttons below and refresh the page to test out changing session values</p>
-<button id="decrement-health-test">Lower Health</button>
 <button id="increase-level-test">Level Up</button>
-<button id="increase-riddle-index">Next Riddle</button>
+
 
 <script src="/js/battle.js" hp={{hp}} level={{level}} riddleIndex = {{riddleIndex}}></script>

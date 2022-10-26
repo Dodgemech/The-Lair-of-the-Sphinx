@@ -1,11 +1,17 @@
 const $homeBtn = document.getElementById('return-home');
 
-$homeBtn.addEventListener('click',(event) => {
+$homeBtn.addEventListener('click',async (event) => {
     event.preventDefault();
     try {
-        document.location.replace('/');
+        const res = await fetch('/api/users/logout', {
+            method: 'POST',
+          });
+          
+          if (res.ok) {
+            console.log('logged out');
+            document.location.replace('/');
+          }
     } catch (error) {
        console.log(error); 
     }
-    
 });

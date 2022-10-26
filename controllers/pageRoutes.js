@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Monster, MonsterRiddle, Riddle, User, Scores } = require('../models');
 const authenticate = require('../utils/auth');
+const checkStats = require('../utils/check-stats');
 
 router.get('/', (req, res) => {
     res.render('homepage', {
@@ -34,17 +35,17 @@ router.get('/login', (req, res) => {
   });
 
 
-router.get('/battle', authenticate, (req, res) => {
-  res.render('battle', {
-    loggedIn: req.session.loggedIn,
-    characterName: req.session.characterName,
-    username: req.session.username,
-    hp: req.session.hp,
-    level: req.session.level,
-    riddleIndex: req.session.riddleIndex
+  router.get('/battle', authenticate, (req, res) => {
+    res.render('battle', {
+      loggedIn: req.session.loggedIn,
+      characterName: req.session.characterName,
+      username: req.session.username,
+      hp: req.session.hp,
+      level: req.session.level,
+      riddleIndex: req.session.riddleIndex
+    });
+  
   });
-
-});
 
 router.get('/info', (req, res) => {
     res.render('info', {
@@ -56,8 +57,21 @@ router.get('/info', (req, res) => {
     });
   });
 
-router.get('/high_scores', (req, res) => {
-  res.render('score', {
+  router.get('/stats', authenticate, (req, res) => {
+    res.render('stats', {
+      loggedIn: req.session.loggedIn,
+      characterName: req.session.characterName,
+      characterGender: req.session.characterGender,
+      username: req.session.username,
+      hp: req.session.hp,
+      level: req.session.level,
+      riddleIndex: req.session.riddleIndex
+    });
+  
+  });
+
+router.get('/game-over', checkStats, (req, res) => {
+  res.render('game-over', {
     loggedIn: req.session.loggedIn,
     characterName: req.session.characterName,
     username: req.session.username,
@@ -65,7 +79,5 @@ router.get('/high_scores', (req, res) => {
     characterScore: req.session.characterScore,
   })
 })
-
-
 
 module.exports = router;
