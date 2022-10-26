@@ -70,7 +70,7 @@ router.get('/info', (req, res) => {
   
   });
 
-router.get('/game-over', checkStats, (req, res) => {
+router.get('/game-over', checkStats, authenticate, (req, res) => {
   res.render('game-over', {
     loggedIn: req.session.loggedIn,
     characterName: req.session.characterName,
