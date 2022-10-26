@@ -73,9 +73,8 @@ async function displayMonster() {
 
 const submitAnswer = async function (event) {
   event.preventDefault();
-  let answerValue = $answerInput.value;
-  let answerLower = answerValue.toLowerCase();
-  if (answerValue.trim().length == 'undefined') {
+  let answerValue = $answerInput.value.toLowerCase();
+  if (answerValue.trim().length === 0) {
     alert('Answer must be provided');
     return;
   }
@@ -132,6 +131,7 @@ const updateHP = async function () {
     console.log(error);
   };
 }
+
 const nextRiddle = async function () {
   try {
     const res = await fetch('/api/users/next-riddle', {
