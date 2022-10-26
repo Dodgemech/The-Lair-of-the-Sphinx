@@ -155,9 +155,7 @@ gameOver();
 window.addEventListener('load', function () {
   $answerInput.focus();
 });
-$levelUp.addEventListener('click', levelUp);
-// $lowerHealth.addEventListener('click', updateHP);
-// $riddleUp.addEventListener('click', nextRiddle);
+
 $answerInputBtn.addEventListener('click', submitAnswer);
 
 
