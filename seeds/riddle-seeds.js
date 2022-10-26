@@ -48,7 +48,7 @@ const riddleData = [
         answers: "darkness"
     },
     {
-        question: "Jim’s parents have three sons: Snap, Crackle, and what’s the name of the third son?  _____",
+        question: "Jim’s parents have three sons: Snap, Crackle, and what’s the name of the third son?  ___",
         answers: "jim"
     },
     {
