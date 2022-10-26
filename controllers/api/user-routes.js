@@ -100,10 +100,10 @@ router.post('/', async (req, res) => {
             req.session.loggedIn = true;
             req.session.username = dbUser.username;
             req.session.characterName = dbUser.character_name;
+            req.session.characterGender = dbUser.character_gender;
             req.session.level = 1;
             req.session.hp = 100;
             req.session.riddleIndex = 0;
-            req.session.monster_id = 1;
             req.session.userID = dbUser.id;
             res.json('You are now logged in!')
          })
@@ -134,6 +134,7 @@ router.post('/login', async (req, res) => {
             req.session.loggedIn = true;
             req.session.username = dbUser.username;
             req.session.characterName = dbUser.character_name;
+            req.session.characterGender = dbUser.character_gender;
             req.session.level = 1;
             req.session.hp = 100;
             req.session.riddleIndex = 0;
@@ -176,19 +177,6 @@ router.post('/next-riddle',(req,res) => {
     }
 });
 
-
-// router.post('/submit-answer',(req,res) => {
-//     try {
-//         if (res.ok) {
-//             req.session.riddleIndex += 1;
-//             res.json('SUBMITTED answer');
-//             console.log(res);
-//         }
-//     }
-//     catch (err) {
-//         console.log(err);
-//     }
-// });
 
 //Change HP
 router.post('/update-hp',(req,res) => {

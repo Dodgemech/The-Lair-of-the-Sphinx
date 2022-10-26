@@ -9,7 +9,7 @@ const monsterData = [
         description:"Usually found in more swampy environments it appears one of these plus size vermin made its way into this dungeon. Watch out for its sharp incisors!"
     },
     {
-        name: 'Bat',
+        name: 'Pig-Bat-Rat',
         level: 1,
         strength: 2,
         image: 'bat.png',
@@ -68,7 +68,7 @@ const monsterData = [
         name: 'Mandrake',
         level: 1,
         strength: 3,
-        image: 'mandarake.png',
+        image: 'mandrake.png',
         description:"The screeching wails of the mandarake are almost loud enough to make your ears bleed. The voice of the plant-like being is so loud it is difficult to make out the riddle it asks, but you manage…"
     },
     {
@@ -97,7 +97,7 @@ const monsterData = [
         level: 1,
         strength: 3,
         image: 'gains-goblin.png',
-        description:"The Gains Goblin is a goblin that has grown far stronger than its kin by stealing the hard earned gains of human beings. Beware the giant lollipop it wields! While it may look like a tasty treat, it can really pack a wallop!"
+        description:"The Gains Goblin is a goblin that has grown far stronger than its kin by stealing the hard earned gains of human beings."
     },
     {
         name: 'Dragon',

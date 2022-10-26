@@ -2,11 +2,10 @@
 
 <h2>Thank you for playing</h2>
 {{!-- Possibly add an if statement --}}
-
-{{#if }}
-<h3>Congratulations, you defeated The Liar of THE Sphinx!</h3>
-{{#else }}
-<h3>The sphinx had gotten this time better luck next time!</h3>
+{{#if (ifLess hp)}}
+<h3>Unfortunately {{characterName}} was not able to defeat the sphinx. Please try again!!</h3>
+{{else}}
+<h3>Congratulations {{characterName}} defeated the sphinx with {{hp}} health points remaining!! Try again to try and see if you can beat your previous score.</h3>
 {{/if}}
 
 <button id="return-home">Return Home</button>

@@ -12,8 +12,6 @@ img {
     filter: grayscale(100%);
     max-width: 450px;
     max-height: 450px;
-    
-
 }
 
 nav {
@@ -43,12 +41,21 @@ main a:hover{
     color: rgb(78, 78, 78);
 }
 
-/* .side-gutter {
-
+.battle-stats {
+    text-align: center;
 }
 
+@media only screen and (max-width: 500px) {
+    img {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+        max-width: 200px;
+        max-height: 200px;
 
-.player-image {
+    }
 
+    .navbar-brand {
+        font-weight: bolder;
+        font-size: 30px; 
+    }
 }
-  */
