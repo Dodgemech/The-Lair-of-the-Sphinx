@@ -1,0 +1,11 @@
+<div class="stats-page-stats">
+    {{#if (ifEqual characterGender "male") }}
+    <img src="images/male-player.png" alt="male player">
+    {{else}}
+    <img src="images/female-player.png" alt="female player">
+    {{/if}}
+    <hr>
+    <h1>{{characterName}}</h1>
+    <h2>HP: {{hp}} - Level: {{level}}</h2>
+
+</div>
